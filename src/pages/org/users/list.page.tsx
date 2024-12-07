@@ -1,16 +1,4 @@
-import {
-    Form,
-    Row,
-    Col,
-    Input,
-    Button,
-    Table,
-    Pagination,
-    DatePicker,
-    TreeSelect,
-    message,
-    Card,
-} from 'antd';
+import { Form, Row, Col, Input, Button, Table, Pagination, DatePicker, TreeSelect, message, Card } from 'antd';
 import locale from 'antd/es/date-picker/locale/zh_CN';
 import { useState } from 'react';
 
@@ -144,26 +132,12 @@ export default function Users() {
                         </Col>
                         <Col span={4}>
                             <Form.Item name="orgId">
-                                <TreeSelect
-                                    showSearch
-                                    style={{ width: '100%' }}
-                                    value={treeValue}
-                                    dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
-                                    placeholder="机构"
-                                    allowClear
-                                    treeDefaultExpandAll
-                                    onChange={onChange}
-                                    treeData={listOrgTree}
-                                    fieldNames={{ value: 'id' }}
-                                />
+                                <TreeSelect showSearch style={{ width: '100%' }} value={treeValue} dropdownStyle={{ maxHeight: 400, overflow: 'auto' }} placeholder="机构" allowClear treeDefaultExpandAll onChange={onChange} treeData={listOrgTree} fieldNames={{ value: 'id' }} />
                             </Form.Item>
                         </Col>
                         <Col span={4}>
                             <Form.Item name="rangePicker">
-                                <DatePicker.RangePicker
-                                    locale={locale}
-                                    onChange={dateChangeHandler}
-                                />
+                                <DatePicker.RangePicker locale={locale} onChange={dateChangeHandler} />
                             </Form.Item>
                         </Col>
                         <Col span={2} />
@@ -207,32 +181,13 @@ export default function Users() {
                     scroll={{ x: 1400 }}
                 />
                 {/* 自定义分页 */}
-                <Pagination
-                    showSizeChanger
-                    onChange={onPageChange}
-                    total={data?.meta.totalItems}
-                    showTotal={(total) => `共 ${total} 条`}
-                    current={data?.meta.currentPage}
-                />
+                <Pagination showSizeChanger onChange={onPageChange} total={data?.meta.totalItems} showTotal={(total) => `共 ${total} 条`} current={data?.meta.currentPage} />
                 {/* 弹出层表单 */}
-                {showInfo && (
-                    <UserEditForm
-                        clickOne={clickOne}
-                        onClose={closeAndRefetchHandler}
-                        dictListTypes={dictListTypes}
-                    />
-                )}
+                {showInfo && <UserEditForm clickOne={clickOne} onClose={closeAndRefetchHandler} dictListTypes={dictListTypes} />}
                 {/* 详情页弹出页面 */}
-                {showInfoDetail && (
-                    <UserDetailPage clickOne={clickOne} onClose={() => setShowInfoDetail(false)} />
-                )}
+                {showInfoDetail && <UserDetailPage clickOne={clickOne} onClose={() => setShowInfoDetail(false)} />}
                 {/* 重设密码页弹出页面 */}
-                {showInfoResetPwd && (
-                    <ResetPwdForm
-                        clickId={clickOne?.id}
-                        onClose={() => setShowInfoResetPwd(false)}
-                    />
-                )}
+                {showInfoResetPwd && <ResetPwdForm clickId={clickOne?.id} onClose={() => setShowInfoResetPwd(false)} />}
             </Card>
         </div>
     );

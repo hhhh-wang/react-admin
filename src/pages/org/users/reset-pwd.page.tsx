@@ -18,21 +18,8 @@ export const ResetPwdForm: React.FC<ResetPwdFormProps> = ({ clickId, onClose }) 
         onClose();
     };
     return (
-        <Modal
-            open
-            title="修改密码"
-            okText="提交"
-            cancelText="取消"
-            onCancel={() => onClose()}
-            onOk={submitHandle}
-        >
-            <Form
-                form={form}
-                labelCol={{ span: 4 }}
-                wrapperCol={{ span: 18 }}
-                layout="horizontal"
-                name="form_in_reset_pwd"
-            >
+        <Modal open title="修改密码" okText="提交" cancelText="取消" onCancel={() => onClose()} onOk={submitHandle}>
+            <Form form={form} labelCol={{ span: 4 }} wrapperCol={{ span: 18 }} layout="horizontal" name="form_in_reset_pwd">
                 <Form.Item name="id" hidden>
                     <Input />
                 </Form.Item>

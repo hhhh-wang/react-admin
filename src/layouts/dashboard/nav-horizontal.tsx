@@ -56,18 +56,7 @@ export default function NavHorizontal() {
     };
     return (
         <div className="w-screen" style={{ height: NAV_HORIZONTAL_HEIGHT }}>
-            <Menu
-                mode="horizontal"
-                items={menuList}
-                className="!z-10 !border-none"
-                defaultOpenKeys={openKeys}
-                defaultSelectedKeys={selectedKeys}
-                selectedKeys={selectedKeys}
-                openKeys={openKeys}
-                onOpenChange={onOpenChange}
-                onClick={onClick}
-                style={menuStyle}
-            />
+            <Menu mode="horizontal" items={menuList} className="!z-10 !border-none" defaultOpenKeys={openKeys} defaultSelectedKeys={selectedKeys} selectedKeys={selectedKeys} openKeys={openKeys} onOpenChange={onOpenChange} onClick={onClick} style={menuStyle} />
         </div>
     );
 }

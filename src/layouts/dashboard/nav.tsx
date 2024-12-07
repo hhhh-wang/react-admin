@@ -48,9 +48,7 @@ export default function Nav(props: Props) {
 
     useEffect(() => {
         if (themeLayout === ThemeLayout.Vertical) {
-            const openKeys = matches
-                .filter((match) => match.pathname !== '/')
-                .map((match) => match.pathname);
+            const openKeys = matches.filter((match) => match.pathname !== '/').map((match) => match.pathname);
             setOpenKeys(openKeys);
         }
         setSelectedKeys([pathname]);
@@ -59,6 +57,7 @@ export default function Nav(props: Props) {
     useEffect(() => {
         const menuRoutes = menuFilter(permissionRoutes);
         const menus = routeToMenuFn(menuRoutes);
+        console.log('nav组件的菜单数据', menus);
         setMenuList(menus);
     }, [permissionRoutes, routeToMenuFn]);
 
@@ -114,16 +113,8 @@ export default function Nav(props: Props) {
             }}
         >
             <div className="relative flex h-20 items-center justify-center py-4">
-                {themeLayout === ThemeLayout.Mini ? (
-                    <Logo className="text-lg" />
-                ) : (
-                    <Logo className="text-4xl" />
-                )}
-                <button
-                    onClick={toggleCollapsed}
-                    className="absolute right-0 top-7 z-50 hidden h-6 w-6 translate-x-1/2 cursor-pointer select-none rounded-full text-center !text-gray md:block"
-                    style={{ color: colorTextBase, borderColor: colorTextBase, fontSize: 16 }}
-                >
+                {themeLayout === ThemeLayout.Mini ? <Logo className="text-lg" /> : <Logo className="text-4xl" />}
+                <button onClick={toggleCollapsed} className="absolute right-0 top-7 z-50 hidden h-6 w-6 translate-x-1/2 cursor-pointer select-none rounded-full text-center !text-gray md:block" style={{ color: colorTextBase, borderColor: colorTextBase, fontSize: 16 }}>
                     {collapsed ? <MenuUnfoldOutlined size={20} /> : <MenuFoldOutlined size={20} />}
                 </button>
             </div>
@@ -134,19 +125,7 @@ export default function Nav(props: Props) {
                 }}
             >
                 {/* <!-- Sidebar Menu --> */}
-                <Menu
-                    mode={menuMode}
-                    items={menuList}
-                    className="h-full !border-none"
-                    defaultOpenKeys={openKeys}
-                    defaultSelectedKeys={selectedKeys}
-                    selectedKeys={selectedKeys}
-                    openKeys={openKeys}
-                    onOpenChange={onOpenChange}
-                    onClick={onClick}
-                    style={menuStyle}
-                    inlineCollapsed={collapsed}
-                />
+                <Menu mode={menuMode} items={menuList} className="h-full !border-none" defaultOpenKeys={openKeys} defaultSelectedKeys={selectedKeys} selectedKeys={selectedKeys} openKeys={openKeys} onOpenChange={onOpenChange} onClick={onClick} style={menuStyle} inlineCollapsed={collapsed} />
             </Scrollbar>
         </div>
     );

@@ -21,18 +21,14 @@ export function useRouteToMenuFn() {
                 .map((item) => {
                     const menuItem: any = [];
                     const { meta, children } = item;
+
                     if (meta) {
                         const { key, label, icon, disabled, suffix } = meta;
                         menuItem.key = key;
                         menuItem.disabled = disabled;
+                        //国际化菜单
                         menuItem.label = (
-                            <div
-                                className={`inline-flex w-full items-center ${
-                                    themeLayout === ThemeLayout.Horizontal
-                                        ? 'justify-start'
-                                        : 'justify-between'
-                                } `}
-                            >
+                            <div className={`inline-flex w-full items-center ${themeLayout === ThemeLayout.Horizontal ? 'justify-start' : 'justify-between'} `}>
                                 <div className="">{t(label)}</div>
                                 {suffix}
                             </div>
@@ -40,21 +36,9 @@ export function useRouteToMenuFn() {
                         if (icon) {
                             if (typeof icon === 'string') {
                                 if (icon.startsWith('ic')) {
-                                    menuItem.icon = (
-                                        <SvgIcon
-                                            icon={icon}
-                                            size={24}
-                                            className="ant-menu-item-icon"
-                                        />
-                                    );
+                                    menuItem.icon = <SvgIcon icon={icon} size={24} className="ant-menu-item-icon" />;
                                 } else {
-                                    menuItem.icon = (
-                                        <Iconify
-                                            icon={icon}
-                                            size={24}
-                                            className="ant-menu-item-icon"
-                                        />
-                                    );
+                                    menuItem.icon = <Iconify icon={icon} size={24} className="ant-menu-item-icon" />;
                                 }
                             } else {
                                 menuItem.icon = icon;

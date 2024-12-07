@@ -152,7 +152,8 @@
                 "index": "组织机构",
                 "org": "机构管理",
                 "station": "岗位管理",
-                "user": "用户管理"
+                "user": "用户管理",
+                "dept": "部门管理"
             },
             "authority": {
                 "index": "权限管理",

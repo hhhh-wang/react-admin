@@ -153,7 +153,9 @@
                 "index": "Org",
                 "org": "Institution",
                 "station": "Station",
-                "user": "User"
+                "user": "User",
+                "dept": "Dept"
+
             },
             "authority": {
                 "index": "Authority",
