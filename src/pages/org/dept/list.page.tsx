@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
-import { Button, Row, Col, Card, Tree, Form, Input, Table } from 'antd';
+import { Button, Row, Col, Card, Tree, Form, Input, Table, Pagination, message } from 'antd';
 import { EditOutlined, DownOutlined, UpOutlined, ReloadOutlined } from '@ant-design/icons';
 
 import { useDeleteOrg, useListOrgTree } from '@/services/org';
-import { OrgEditForm } from '@/pages/org/orgs/edit.page.tsx';
+
+import { columns } from '@/pages/org/users/constants.tsx';
+import { useDeleteUser, useListUserRelate } from '@/services/user.ts';
+import { useNavigate } from 'react-router-dom';
 
 export interface InputType {
     id?: string;
@@ -37,17 +40,25 @@ export interface OutputType {
 }
 
 export default function Orgs() {
+    const navigate = useNavigate();
     const [form] = Form.useForm();
     const defaultClickOne: InputType = { type: '01', state: true };
 
     // 状态定义
     const [checkedKeys, setCheckedKeys] = useState<string[]>();
-    const [clickOne, setClickOne] = useState<InputType>(defaultClickOne);
-    const [expanded, setExpanded] = useState(true); // 控制树的展开和收缩
 
+    const [expanded, setExpanded] = useState(true); // 控制树的展开和收缩
+    const [expandedKeys, setExpandedKeys] = useState<string[]>([]); // 控制树的展开和收缩
+
+    const [listRelateParams, setListRelateParams] = useState<InputType>();
     // API-hook
     const { data: listOrgTree, refetch } = useListOrgTree();
+    const { mutateAsync: delMutate } = useDeleteUser();
     const { mutateAsync } = useDeleteOrg();
+    // 打开编辑表单处理器，点击按钮触发
+    const [clickOne, setClickOne] = useState<OutputType>();
+    const [showInfo, setShowInfo] = useState(false);
+    const { data } = useListUserRelate(listRelateParams);
     // ==========逻辑处理==========
     // 复选框点击时处理
     const onCheck = (checked: React.Key[] | { checked: React.Key[] }) => {
@@ -64,34 +75,88 @@ export default function Orgs() {
         }
     };
 
-    // 点击新增时的处理
-    const addHandler = () => {
-        if (clickOne.id) {
-            defaultClickOne.parent = clickOne.id;
-            defaultClickOne.parentId = clickOne.id;
-            setClickOne(defaultClickOne);
-        }
+    // 字典详情分页改变处理
+    const onPageChange = (page: number, pageSize: number) => {
+        const values: InputType = { page, limit: pageSize };
+        setListRelateParams(values);
     };
 
-    // 点击删除时的处理
-    const delHandler = async () => {
-        if (checkedKeys) {
-            await mutateAsync(checkedKeys);
-            // 可以添加刷新树或其他后续操作
+    // 批量删除处理
+    const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
+    const [selectedIds, setSelectedIds] = useState<string[]>();
+    const batchDelHandler = async () => {
+        if (!selectedIds) {
+            message.error('请勾选数据之后删除');
+            return;
         }
+        delMutate(selectedIds);
+        setSelectedIds(undefined);
+        setSelectedRowKeys([]);
     };
-
     // 切换树的展开/收缩状态
-
     const toggleExpand = () => {
-        setExpanded(!expanded);
+        if (expanded) {
+            setExpandedKeys([]); // 收起所有节点
+        } else {
+            const allKeys = listOrgTree?.map((node: any) => node.id) || []; // 展开所有节点
+            setExpandedKeys(allKeys);
+        }
+        setExpanded(!expanded); // 切换展开状态
+    };
+    //更新树
+    const refreshTree = () => {
+        refetch()
+            .then(() => {
+                message.success('树结构已更新');
+            })
+            .catch(() => {
+                message.error('更新失败，请稍后重试');
+            });
+    };
+    // 多选框处理
+    const rowSelection = {
+        // 指定选中项的 key 数组，从0开始的下标，用于控制数据的勾选，自动的本来可以，手动主要用于删除后的清除
+        selectedRowKeys,
+        // 选中项发生变化时的回调
+        onChange: (newSelectedRowKeys: React.Key[], selectedRows: OutputType[]) => {
+            // 用于显示勾选项
+            setSelectedRowKeys(newSelectedRowKeys);
+            // 删除时的ids传值
+            const ids: string[] = [];
+            selectedRows.forEach((val, index) => {
+                ids[index] = val.id!;
+            });
+            setSelectedIds(ids);
+        },
     };
 
-    const refreshTree = () => {
-        // 假设 useListOrgTree 是一个自定义 Hook，我们可以在这里重新触发这个 Hook
-        // 例如，如果 useListOrgTree 使用了 SWR 或 React Query，可以在这里调用 refetch
-        useListOrgTree.refetch();
+    const onOpenFormHandler = (record?: OutputType) => {
+        if (record) {
+            setClickOne(record);
+        } else {
+            const defaultRecord = { state: true, password: '123456' };
+            setClickOne(defaultRecord);
+        }
+        setShowInfo(true);
     };
+
+    const onDelHandler = async (ids: string[]) => {
+        delMutate(ids);
+    };
+
+    // ==========详情页处理==========
+    const [showInfoDetail, setShowInfoDetail] = useState(false);
+    const onOpenDetailHanler = (record: OutputType) => {
+        setShowInfoDetail(true);
+        setClickOne(record);
+    };
+    // ==========重置密码页处理==========
+    const [showInfoResetPwd, setShowInfoResetPwd] = useState(false);
+    const onOpenResetPwdHanler = (record: OutputType) => {
+        setShowInfoResetPwd(true);
+        setClickOne(record);
+    };
+
     return (
         <div
             style={{
@@ -126,7 +191,7 @@ export default function Orgs() {
                     >
                         <span>组织机构</span>
                         <div>
-                            <Button icon={<EditOutlined />} onClick={() => console.log('进入机构管理')} />
+                            <Button icon={<EditOutlined />} onClick={() => navigate('/org/users')} />
                             <Button icon={expanded ? <UpOutlined /> : <DownOutlined />} onClick={toggleExpand} style={{ marginLeft: 8 }} />
                             <Button icon={<ReloadOutlined />} onClick={refreshTree} style={{ marginLeft: 8 }} />
                         </div>
@@ -139,7 +204,18 @@ export default function Orgs() {
                             overflow: 'auto', // 滚动条
                         }}
                     >
-                        {listOrgTree && <Tree checkable checkStrictly defaultExpandAll={expanded} onCheck={(checked) => setCheckedKeys(checked as string[])} onSelect={(selectedKeys, info) => setClickOne(info.node)} treeData={listOrgTree} fieldNames={{ title: 'label', key: 'id' }} />}
+                        {listOrgTree && (
+                            <Tree
+                                checkable
+                                checkStrictly
+                                expandedKeys={expandedKeys} // 绑定展开状态
+                                onExpand={(keys) => setExpandedKeys(keys as string[])} // 更新展开节点
+                                onCheck={(checked) => setCheckedKeys(checked as string[])}
+                                onSelect={(selectedKeys, info) => setClickOne(info.node)}
+                                treeData={listOrgTree}
+                                fieldNames={{ title: 'label', key: 'id' }}
+                            />
+                        )}
                     </div>
                 </Card>
             </Col>
@@ -188,7 +264,22 @@ export default function Orgs() {
                             </Col>
                         </Row>
                     </Form>
-                    <Table />
+                    <Table
+                        rowSelection={{
+                            ...rowSelection,
+                        }}
+                        columns={columns({
+                            onOpenFormHandler,
+                            onDelHandler,
+                            onOpenDetailHanler,
+                            onOpenResetPwdHanler,
+                        })}
+                        dataSource={data?.items}
+                        pagination={false}
+                        scroll={{ x: 1400 }}
+                    />
+                    {/* 自定义分页 */}
+                    <Pagination showSizeChanger onChange={onPageChange} total={data?.meta.totalItems} showTotal={(total) => `共 ${total} 条`} current={data?.meta.currentPage} />
                 </Card>
             </Col>
         </div>
