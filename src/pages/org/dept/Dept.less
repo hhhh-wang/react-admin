@@ -1,0 +1,48 @@
+/* Dept.less */
+
+/* 整体布局 */
+.dept-container {
+  display: flex;
+  height: 100vh; /* 页面高度占满视口 */
+  gap: 16px; /* 添加间隔 */
+}
+
+/* 左侧树区域 */
+.dept-tree-container {
+  height: 80vh; /* 高度占页面的 80% */
+  overflow: hidden; /* 防止内容超出 */
+}
+
+.dept-card {
+  height: 100%; /* 填充父容器 */
+  display: flex;
+  flex-direction: column; /* Flex 布局 */
+}
+
+.dept-tree-top {
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dept-tree-content {
+  flex: 1; /* 填充剩余空间 */
+  overflow: auto; /* 滚动条 */
+}
+
+/* 右侧内容区域 */
+.dept-content-container {
+  flex: 1; /* 填充剩余宽度 */
+  height: 80vh; /* 高度占页面的 80% */
+  overflow: auto; /* 滚动条 */
+}
+
+.dept-content-card {
+  height: 100%; /* 填满父容器高度 */
+  overflow: auto; /* 滚动条 */
+}
+/* 添加表格和分页之间的间隔 */
+.dept-table-pagination-gap {
+  margin-top: 16px; /* 间隔大小，具体值可以根据需求调整 */
+}
