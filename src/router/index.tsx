@@ -10,7 +10,7 @@ import { AppRouteObject } from '#/router';
 const { VITE_APP_HOMEPAGE: HOMEPAGE } = import.meta.env;
 const LoginRoute: AppRouteObject = {
     path: '/login',
-    Component: lazy(() => import('@/pages/system/sys/login/Login')),
+    Component: lazy(() => import('@/pages/setting/sys/login/Login')),
 };
 const PAGE_NOT_FOUND_ROUTE: AppRouteObject = {
     path: '*',
@@ -26,10 +26,7 @@ export default function Router() {
                 <DashboardLayout />
             </AuthGuard>
         ),
-        children: [
-            { index: true, element: <Navigate to={HOMEPAGE} replace /> },
-            ...permissionRoutes,
-        ],
+        children: [{ index: true, element: <Navigate to={HOMEPAGE} replace /> }, ...permissionRoutes],
     };
 
     const routes = [LoginRoute, asyncRoutes, ErrorRoutes, PAGE_NOT_FOUND_ROUTE];

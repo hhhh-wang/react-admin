@@ -1,18 +1,5 @@
 import { SearchOutlined } from '@ant-design/icons';
-import {
-    Button,
-    Card,
-    Col,
-    Form,
-    Input,
-    Modal,
-    Row,
-    Space,
-    Table,
-    Tooltip,
-    Tree,
-    message,
-} from 'antd';
+import { Button, Card, Col, Form, Input, Modal, Row, Space, Table, Tooltip, Tree, message } from 'antd';
 import { ColumnsType } from 'antd/es/table';
 import { DataNode } from 'antd/es/tree';
 import { isEmpty } from 'lodash';
@@ -21,8 +8,8 @@ import { useEffect, useState } from 'react';
 import { useListResource } from '@/services/resource';
 import { useSaveBatchRoleAutority } from '@/services/role-authority';
 
-import { OutputType } from '../../setting/menus/list.page';
-import { OutputType as ResourceOutputType } from '../../setting/menus/resource-list.page';
+import { OutputType } from '../../../setting/menus/list.page';
+import { OutputType as ResourceOutputType } from '../../../setting/menus/resource-list.page';
 
 import { PermissionType } from '#/enum';
 
@@ -46,9 +33,7 @@ export interface InputType {
  */
 export const traverseTree = (node: OutputType) => {
     // 处理节点的标签值
-    node.name = `${node.resourceType === PermissionType.BUTTON ? '「按钮」' : '「菜单」'}${
-        node.name
-    }`;
+    node.name = `${node.resourceType === PermissionType.BUTTON ? '「按钮」' : '「菜单」'}${node.name}`;
     // 递归处理子节点
     node.children = node.children?.map((childNode) => traverseTree(childNode));
     return node;
@@ -101,12 +86,7 @@ export const traverseTree = (node: OutputType) => {
 //     });
 // };
 
-export const ResourceAllotPage: React.FC<ResourceAllotPageProps> = ({
-    clickRoleId,
-    clickListRoleAuthorityId,
-    listMenuTreeInitData,
-    onClose,
-}) => {
+export const ResourceAllotPage: React.FC<ResourceAllotPageProps> = ({ clickRoleId, clickListRoleAuthorityId, listMenuTreeInitData, onClose }) => {
     const [treeData] = useState<OutputType[]>(listMenuTreeInitData);
     const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
     const { mutateAsync } = useSaveBatchRoleAutority();
@@ -217,15 +197,7 @@ export const ResourceAllotPage: React.FC<ResourceAllotPageProps> = ({
         },
     };
     return (
-        <Modal
-            open
-            title="分配菜单和资源"
-            okText="提交"
-            cancelText="取消"
-            onCancel={() => onClose()}
-            onOk={submitHandle}
-            width="65%"
-        >
+        <Modal open title="分配菜单和资源" okText="提交" cancelText="取消" onCancel={() => onClose()} onOk={submitHandle} width="65%">
             <Row gutter={12}>
                 <Col span={9}>
                     <Card title="菜单">

@@ -157,10 +157,6 @@
                 "dept": "Dept"
 
             },
-            "authority": {
-                "index": "Authority",
-                "role": "Role"
-            },
             "base": {
                 "index": "Base",
                 "area": "Area"

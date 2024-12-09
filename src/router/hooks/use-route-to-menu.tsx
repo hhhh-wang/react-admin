@@ -26,7 +26,7 @@ export function useRouteToMenuFn() {
                         const { key, label, icon, disabled, suffix } = meta;
                         menuItem.key = key;
                         menuItem.disabled = disabled;
-                        //国际化菜单
+                        // 国际化菜单
                         menuItem.label = (
                             <div className={`inline-flex w-full items-center ${themeLayout === ThemeLayout.Horizontal ? 'justify-start' : 'justify-between'} `}>
                                 <div className="">{t(label)}</div>

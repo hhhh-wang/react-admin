@@ -2,7 +2,7 @@ import { useMutation, useQuery } from '@tanstack/react-query';
 
 import { service } from '@/http/axios/service';
 import { queryClient } from '@/http/tanstack/react-query';
-import { InputType } from '@/pages/authority/roles/constants';
+import { InputType } from '@/pages/setting/roles/constants';
 import { globalSuccess } from '@/utils/antd-extract';
 
 /**

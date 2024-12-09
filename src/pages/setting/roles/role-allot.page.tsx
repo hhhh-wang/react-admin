@@ -17,12 +17,7 @@ interface RecordType {
     chosen: boolean;
 }
 
-export const RoleAllotPage: React.FC<RoleAllotPageProps> = ({
-    listUser,
-    clickRoleId,
-    clickUserRoleList,
-    onClose,
-}) => {
+export const RoleAllotPage: React.FC<RoleAllotPageProps> = ({ listUser, clickRoleId, clickUserRoleList, onClose }) => {
     const [dataList, setDataList] = useState<RecordType[]>([]);
     const [targetKeys, setTargetKeys] = useState<string[]>([]);
     const { mutateAsync } = useSaveUserRoleList();
@@ -49,8 +44,7 @@ export const RoleAllotPage: React.FC<RoleAllotPageProps> = ({
         setTargetKeys(tempTargetKeys);
     };
     // 根据搜索内容进行筛选
-    const filterOption = (inputValue: string, option: RecordType) =>
-        option.title.indexOf(inputValue) > -1;
+    const filterOption = (inputValue: string, option: RecordType) => option.title.indexOf(inputValue) > -1;
     // 更新右侧框的数据集
     const handleChange = (newTargetKeys: string[]) => {
         setTargetKeys(newTargetKeys);
@@ -61,14 +55,7 @@ export const RoleAllotPage: React.FC<RoleAllotPageProps> = ({
         onClose();
     };
     return (
-        <Modal
-            open
-            title="分配角色成员"
-            okText="提交"
-            cancelText="取消"
-            onCancel={() => onClose()}
-            onOk={submitHandle}
-        >
+        <Modal open title="分配角色成员" okText="提交" cancelText="取消" onCancel={() => onClose()} onOk={submitHandle}>
             <Transfer
                 dataSource={dataList}
                 locale={{

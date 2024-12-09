@@ -28,7 +28,9 @@ export function usePermissionRoutes() {
 
     return useMemo(() => {
         const flattenedPermissions = flattenTrees(permissions!);
+
         const permissionRoutes = transformPermissionToMenuRoutes(permissions || [], flattenedPermissions);
+        console.log('Generated Routes:', permissionRoutes);
         return [...permissionRoutes];
     }, [permissions]);
 }
