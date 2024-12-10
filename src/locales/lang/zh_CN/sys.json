@@ -140,7 +140,8 @@
         "menu": "菜单管理",
         "dictionary": "字典管理",
         "parameter": "参数管理",
-        "role": "角色管理"
+        "role": "角色管理",
+        "area": "行政区划"
       },
       "org": {
         "index": "组织机构",
@@ -148,10 +149,6 @@
         "station": "岗位管理",
         "user": "用户管理",
         "dept": "部门管理"
-      },
-      "base": {
-        "index": "基础配置",
-        "area": "行政区划"
       },
       "resource": {
         "index": "资源管理",

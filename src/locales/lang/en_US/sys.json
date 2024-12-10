@@ -157,10 +157,6 @@
                 "dept": "Dept"
 
             },
-            "base": {
-                "index": "Base",
-                "area": "Area"
-            },
             "resource": {
                 "index": "Resource",
                 "oss": "Oss"
