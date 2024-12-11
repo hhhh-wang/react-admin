@@ -135,6 +135,10 @@
       "home": {
         "index": "个人主页"
       },
+      "personal": {
+        "index": "个人资料",
+        "reveal": "展示"
+      },
       "setting": {
         "index": "系统设置",
         "menu": "菜单管理",

@@ -136,6 +136,9 @@
       "home": {
         "index": "Home"
       },
+      "personal": {
+        "reveal": "reveal"
+      },
       "setting": {
         "index": "Setting",
         "menu": "Menu",
