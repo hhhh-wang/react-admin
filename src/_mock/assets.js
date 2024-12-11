@@ -501,7 +501,7 @@ export const ROLE_LIST = [ADMIN_ROLE, TEST_ROLE];
  */
 export const DEFAULT_USER = {
     id: faker.string.uuid(),
-    account: 'prune',
+    account: 'reactAdmin',
     email: faker.internet.email(),
     avatar: faker.image.avatarLegacy(),
     createdAt: faker.date.anytime(),
