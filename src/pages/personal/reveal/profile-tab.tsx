@@ -1,4 +1,4 @@
-import { faker } from '@faker-js/faker';
+import { faker } from '@faker-js/faker/locale/zh_CN';
 import { Avatar, Col, Progress, Row, Space, Table, Timeline, Typography } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 
@@ -23,6 +23,7 @@ interface DataType {
 export default function ProfileTab() {
     const { username } = useUserInfo();
     const theme = useThemeToken();
+
     const AboutItems = [
         {
             icon: <Iconify icon="fa-solid:user" size={18} />,
@@ -129,7 +130,7 @@ export default function ProfileTab() {
             arr.push({
                 key: faker.string.uuid(),
                 avatar: faker.image.urlPicsumPhotos(),
-                name: faker.company.buzzPhrase(),
+                name: faker.company.name(),
                 date: faker.date.past().toDateString(),
                 leader: faker.person.fullName(),
                 team: fakeAvatars(faker.number.int({ min: 2, max: 5 })),
@@ -141,7 +142,7 @@ export default function ProfileTab() {
 
     const ProjectColumns: ColumnsType<DataType> = [
         {
-            title: 'NAME',
+            title: '名称',
             dataIndex: 'name',
             render: (_, record) => (
                 <div className="flex items-center">
@@ -154,12 +155,12 @@ export default function ProfileTab() {
             ),
         },
         {
-            title: 'LEADER',
+            title: '负责人',
             dataIndex: 'leader',
             render: (val) => <span className="opacity-50">{val}</span>,
         },
         {
-            title: 'TEAM',
+            title: '团队',
             dataIndex: 'team',
             render: (val: string[]) => (
                 <Avatar.Group>
@@ -170,12 +171,12 @@ export default function ProfileTab() {
             ),
         },
         {
-            title: 'STATUS',
+            title: '进度',
             dataIndex: 'status',
             render: (val) => <Progress percent={val} strokeColor={theme.colorPrimary} trailColor="transparent" />,
         },
         {
-            title: 'ACTIONS',
+            title: '操作',
             dataIndex: 'action',
             render: () => (
                 <Space size="middle">
@@ -213,7 +214,7 @@ export default function ProfileTab() {
                 </Col>
                 <Col span={24} md={12} lg={16}>
                     <Card className="flex-col !items-start">
-                        <Typography.Title level={5}>Activity Timeline</Typography.Title>
+                        <Typography.Title level={5}>活动记录</Typography.Title>
                         <Timeline
                             className="!mt-4 w-full"
                             items={[
@@ -288,7 +289,7 @@ export default function ProfileTab() {
                 <Col span={24} md={12}>
                     <Card className="flex-col !items-start">
                         <div className="flex w-full items-center justify-between">
-                            <Typography.Title level={5}>Connections</Typography.Title>
+                            <Typography.Title level={5}>联系人</Typography.Title>
                             <IconButton>
                                 <Iconify icon="fontisto:more-v-a" />
                             </IconButton>
@@ -322,7 +323,7 @@ export default function ProfileTab() {
                 <Col span={24} md={12}>
                     <Card className="flex-col !items-start">
                         <div className="flex w-full items-center justify-between">
-                            <Typography.Title level={5}>Teams</Typography.Title>
+                            <Typography.Title level={5}>团队</Typography.Title>
                             <IconButton>
                                 <Iconify icon="fontisto:more-v-a" />
                             </IconButton>
@@ -349,7 +350,7 @@ export default function ProfileTab() {
             <Row gutter={[16, 16]} className="mt-4">
                 <Col span={24}>
                     <Card className="flex-col !items-start">
-                        <Typography.Title level={5}>Projects</Typography.Title>
+                        <Typography.Title level={5}>项目</Typography.Title>
                         <div className="!mt-4 w-full">
                             <Scrollbar>
                                 <Table rowSelection={{ type: 'checkbox' }} columns={ProjectColumns} dataSource={fakeProjectItems()} />
