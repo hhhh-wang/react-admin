@@ -137,7 +137,8 @@
         "index": "Home"
       },
       "personal": {
-        "reveal": "reveal"
+        "reveal": "reveal",
+        "analysis":"analysis"
       },
       "setting": {
         "index": "Setting",

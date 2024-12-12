@@ -137,7 +137,8 @@
       },
       "personal": {
         "index": "个人资料",
-        "reveal": "展示"
+        "reveal": "展示",
+        "analysis":"数据分析"
       },
       "setting": {
         "index": "系统设置",
