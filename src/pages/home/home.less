@@ -1,0 +1,118 @@
+.home-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 20px;
+
+  .home-content {
+    width: 100%;
+    max-width: 1400px;
+    display: flex;
+    gap: 20px;
+  }
+
+  .home-header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    .home-header {
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      color: #3575ff;
+    }
+
+    .home-icon {
+      font-size: 32px;
+      color: #3575ff;
+    }
+  }
+
+  .home-card {
+    height: 220px; /* 固定高度，避免坍塌 */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    padding: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid #f0f0f0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    .home-card-content {
+      flex-grow: 1; /* 填充剩余空间 */
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* 垂直居中 */
+      align-items: center;
+      text-align: center;
+
+      .home-avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+        transition: opacity 0.3s ease;
+      }
+
+      .home-username {
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #3575ff;
+        transition: opacity 0.3s ease;
+      }
+
+      .home-hover-text {
+        font-size: 20px;
+        font-weight: bold;
+        color: #3575ff;
+        transition: opacity 0.3s ease;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+      }
+
+      .hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .visible {
+        opacity: 1;
+        pointer-events: all;
+      }
+    }
+
+    .home-icons {
+      position: absolute;
+      bottom: 20px; /* 固定在底部 */
+      right: 15%; /* 距离右侧宽度为 1/3 */
+      display: flex;
+      gap: 10px;
+
+      .icon {
+        font-size: 24px;
+        color: #333;
+        cursor: pointer;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: #3575ff;
+        }
+      }
+    }
+  }
+
+  .home-tabs-card {
+    margin-top: 20px;
+  }
+}
+

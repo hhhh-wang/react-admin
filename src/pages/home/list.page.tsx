@@ -1,247 +1,156 @@
-import { Column } from '@antv/g2plot';
-import { Avatar, Button, Divider, Tabs, TabsProps } from 'antd';
-import { useEffect, useRef } from 'react';
+import React, { useState } from 'react';
+import { Card, Modal, Row, Col, Tabs } from 'antd';
+import { SmileOutlined, GithubOutlined, MailOutlined } from '@ant-design/icons';
+import EChartsComponent from '@/components/e-charts';
+import HomeTimeDisplay from '@/pages/home/home-time-display';
+import { useUserInfo } from '@/store/userStore';
+import './home.less';
 
-import Card from '@/components/card';
+const HomePage: React.FC = () => {
+    const [hovered, setHovered] = useState(false);
+    const { account, avatar } = useUserInfo();
 
-const data = [
-    {
-        name: '您',
-        date: '2023-12-20',
-        pv: 34,
-    },
-    {
-        name: '总数',
-        date: '2023-12-20',
-        pv: 38,
-    },
-    {
-        name: '您',
-        date: '2023-12-21',
-        pv: 27,
-    },
-    {
-        name: '总数',
-        date: '2023-12-21',
-        pv: 29,
-    },
-    {
-        name: '您',
-        date: '2023-12-22',
-        pv: 23,
-    },
-    {
-        name: '总数',
-        date: '2023-12-22',
-        pv: 24,
-    },
-    {
-        name: '您',
-        date: '2023-12-23',
-        pv: 19,
-    },
-    {
-        name: '总数',
-        date: '2023-12-23',
-        pv: 35,
-    },
-    {
-        name: '您',
-        date: '2023-12-24',
-        pv: 10,
-    },
-    {
-        name: '总数',
-        date: '2023-12-24',
-        pv: 10,
-    },
-    {
-        name: '您',
-        date: '2023-12-25',
-        pv: 4,
-    },
-    {
-        name: '总数',
-        date: '2023-12-25',
-        pv: 5,
-    },
-    {
-        name: '您',
-        date: '2023-12-26',
-        pv: 30,
-    },
-    {
-        name: '总数',
-        date: '2023-12-26',
-        pv: 33,
-    },
-    {
-        name: '您',
-        date: '2023-12-27',
-        pv: 29,
-    },
-    {
-        name: '总数',
-        date: '2023-12-27',
-        pv: 31,
-    },
-    {
-        name: '您',
-        date: '2023-12-28',
-        pv: 18,
-    },
-    {
-        name: '总数',
-        date: '2023-12-28',
-        pv: 23,
-    },
-];
+    const [qrVisible, setQrVisible] = useState(false);
+    const openQrModal = () => setQrVisible(true);
+    const closeQrModal = () => setQrVisible(false);
 
-export default function Home() {
-    const ref = useRef(null);
-    // 图表。保证首次加载，且只加载一次
-    useEffect(() => {
-        if (!ref.current) {
-            return;
-        }
-        const stackedColumnPlot = new Column(ref.current, {
-            data,
-            isGroup: true,
-            xField: 'date',
-            yField: 'pv',
-            seriesField: 'name',
-            /** 设置颜色 */
-            // color: ['#1ca9e6', '#f88c24'],
-            /** 设置间距 */
-            // marginRatio: 0.1,
-            // 柱子样式
-            // columnStyle: {
-            //     radius: [20, 20, 0, 0],
-            // },
-        });
-        stackedColumnPlot.render();
-        // 返回清理函数，以确保在下一次运行之前清理上一次的实例
-        // eslint-disable-next-line consistent-return
-        return () => {
-            stackedColumnPlot.destroy();
-        };
-    }, []);
-    // 标签切换 items
-    const items: TabsProps['items'] = [
+    const lineChartOption = {
+        title: { text: '近八天系统访问记录', left: 'center' },
+        tooltip: { trigger: 'axis' },
+        legend: { top: '10%', data: ['你', '总数'] },
+        xAxis: {
+            type: 'category',
+            data: ['2023-12-20', '2023-12-21', '2023-12-22', '2023-12-23', '2023-12-24', '2023-12-25', '2023-12-26'],
+        },
+        yAxis: { type: 'value' },
+        series: [
+            {
+                name: '你',
+                type: 'line',
+                data: [20, 30, 25, 35, 40, 30, 20],
+                smooth: true,
+            },
+            {
+                name: '总数',
+                type: 'line',
+                data: [50, 60, 55, 70, 80, 60, 40],
+                smooth: true,
+            },
+        ],
+    };
+    const headerContainerStyle = {
+        display: 'flex', // 使用 flex 布局
+        alignItems: 'center', // 垂直居中
+        justifyContent: 'center', // 水平居中
+        gap: '10px', // 控制图标与文字的间距
+    };
+
+    const techStack = (
+        <ul>
+            <li>基于 React 18 hooks 构建，提升代码复用性与性能</li>
+            <li>快速开发：基于 Vite 提供高效热模块替换</li>
+            <li>集成 Ant Design，支持丰富 UI 组件</li>
+            <li>使用 TypeScript 提供类型安全和更好的开发体验</li>
+            <li>可视化工具：ECharts，支持交互式数据展示</li>
+            <li>TailwindCSS 原子化样式，按需使用，支持主题自定义</li>
+        </ul>
+    );
+
+    const projectIntro = (
+        <ul>
+            <li>产品名称：sapling 快速开发平台</li>
+            <li>核心功能：高效、灵活、可定制的企业级管理系统</li>
+            <li>获取源码：sapling 后台服务、前端模板一键集成</li>
+        </ul>
+    );
+
+    const tabItems = [
         {
             key: '1',
-            label: '项目介绍',
-            children: (
-                <div>
-                    <div className="m-4">
-                        <span>产品名称</span>
-                        <div className="mx-3 inline-block h-4 w-[1px] bg-[#dcdfe6]" />
-                        <Button
-                            className="text-blue-500 bg-[#e8f4ff]"
-                            href="https://github.com/KangodYan/prune-admin"
-                            target="_blank"
-                        >
-                            Prune 快速开发平台
-                        </Button>
-                        <div className="mx-3 inline-block h-4 w-[1px] bg-[#dcdfe6]" />
-                        <span>立即去点个star吧~</span>
-                    </div>
-                    <Divider orientation="right">⭐ </Divider>
-                    <div className="m-4">
-                        <span>账号密码</span>
-                        <div className="mx-3 inline-block h-4 w-[1px] bg-[#dcdfe6]" />
-                        <Button className="text-blue-500 border-blue-500">
-                            平台管理员 (prune_pt)
-                        </Button>
-                        <div className="mx-3 inline-block h-4 w-[1px] bg-[#dcdfe6]" />
-                        <Button className="text-green-500 border-green-500">
-                            超级管理员 (prune)
-                        </Button>
-                        <div className="mx-3 inline-block h-4 w-[1px] bg-[#dcdfe6]" />
-                        <Button> 普通用户 (normal)</Button>
-                    </div>
-                    <Divider orientation="right">密码密码密码密码密码都是：123456</Divider>
-                    <div className="m-4">
-                        <span>获取源码</span>
-                        <div className="mx-3 inline-block h-4 w-[1px] bg-[#dcdfe6]" />
-                        <Button
-                            className="bg-red-400 text-white"
-                            href="https://github.com/KangodYan/tealamp-api-nestjs"
-                            target="_blank"
-                        >
-                            Prune 后端服务
-                        </Button>
-                        <div className="mx-3 inline-block h-4 w-[1px] bg-[#dcdfe6]" />
-                        <Button
-                            className="bg-green-400 text-white"
-                            href="https://github.com/KangodYan/prune-admin"
-                            target="_blank"
-                        >
-                            Prune 后台管理 (本项目)
-                        </Button>
-                    </div>
-                </div>
-            ),
+            label: '技术栈',
+            children: techStack,
         },
         {
             key: '2',
-            label: '技术栈',
-            children: 'Content of Tab Pane 2',
+            label: '项目介绍',
+            children: projectIntro,
         },
     ];
+    const headerStyle = {
+        textAlign: 'center',
+        fontSize: '28px',
+        fontWeight: 'bold',
+        color: '#3575ff',
+    };
+    const iconStyle = {
+        fontSize: '32px', // 图标大小
+        color: '#3575ff', // 图标颜色
+    };
+
     return (
-        <div>
-            <section className="bg-white dark:bg-slate-900">
-                <div className="container mx-auto flex flex-wrap px-5 py-4">
-                    <div className="mb-auto mt-auto flex content-start sm:w-2/3 sm:pr-10 lg:w-3/5">
-                        <div className="mt-6">
-                            <Avatar
-                                size="large"
-                                src="https://qiniu.panlore.top/project/prune/rc-upload-1716455792616-2.jpg"
-                            />
+        <div className="home-container">
+            <div className="home-content">
+                {/* 左侧内容 */}
+                <div style={{ flex: 1 }}>
+                    <Card style={{ marginBottom: '20px', textAlign: 'center' }}>
+                        <div style={headerContainerStyle}>
+                            <span style={headerStyle}>欢迎来到sapling后端管理框架</span>
+                            <SmileOutlined style={iconStyle} />
                         </div>
-                        <div className="mb-6 w-full px-4 sm:p-4">
-                            <h1 className="title-font mb-2 text-xl font-medium text-gray-900 dark:text-[var(--color-text)]">
-                                Good morning, 超级管理员, Have a coffee break ☕
-                            </h1>
-                            <div className="leading-relaxed">上次登录时间： 第一次登录系统</div>
-                        </div>
-                    </div>
-                    <div className="mb-auto flex content-start sm:w-2/3 lg:w-2/5">
-                        <div className="w-1/2 p-4 sm:w-1/2 lg:w-1/3">
-                            <h2 className="title-font text-3xl font-medium text-gray-900 dark:text-[var(--color-text)]">
-                                1
-                            </h2>
-                            <p className="leading-relaxed">今日 IP</p>
-                        </div>
-                        <div className="w-1/2 p-4 sm:w-1/2 lg:w-1/3">
-                            <h2 className="title-font text-3xl font-medium text-gray-900 dark:text-[var(--color-text)]">
-                                3
-                            </h2>
-                            <p className="leading-relaxed">今日访问</p>
-                        </div>
-                        <div className="w-1/2 p-4 sm:w-1/2 lg:w-1/3">
-                            <h2 className="title-font text-3xl font-medium text-gray-900 dark:text-[var(--color-text)]">
-                                10,212
-                            </h2>
-                            <p className="leading-relaxed">总访问量</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section className="mt-3 flex ">
-                <div className="bg-white dark:bg-slate-900 mr-3 w-1/2">
+                        <h2>
+                            在sapling是一个基于
+                            <a href="https://github.com/kangood/prune-admin" target="_blank" rel="noopener noreferrer">
+                                prune-admin
+                            </a>{' '}
+                            开发的后端管理框架，其核心目标是为开发者提供一个轻量级、易上手且可扩展的后台管理解决方案。框架的初心是希望开发者能够在一个易用的基础框架上快速搭建功能强大的后台系统，逐步优化，向更强大、更完善的方向迈进。
+                        </h2>
+                    </Card>
                     <Card>
-                        <div className="m-5 font-bold text-[#487ec1]">近八天系统访问记录</div>
-                        <div className="ml-5" ref={ref} />
+                        <EChartsComponent option={lineChartOption} width="100%" height={400} />
                     </Card>
                 </div>
-                <div className="bg-white dark:bg-slate-900 w-1/2 pl-3">
-                    <Card>
-                        <Tabs defaultActiveKey="1" items={items} />
+
+                {/* 右侧内容 */}
+                <div style={{ flex: 1 }}>
+                    <Row gutter={16}>
+                        <Col span={12}>
+                            <Card className="home-card" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
+                                {/* 卡片内容区域 */}
+                                <div className="home-card-content">
+                                    {/* 头像 */}
+                                    <img className={`home-avatar ${hovered ? 'hidden' : ''}`} src={avatar || 'https://via.placeholder.com/80'} alt="User Avatar" />
+                                    {/* 用户名 */}
+                                    <div className={`home-username ${hovered ? 'hidden' : ''}`}>{account || '未登录用户'}</div>
+                                    {/* 悬停文字 */}
+                                    <div className={`home-hover-text ${hovered ? 'visible' : 'hidden'}`}>做一些有挑战的事</div>
+                                </div>
+
+                                {/* 图标容器 */}
+                                <div className="home-icons">
+                                    <a href="https://github.com/kangood/prune-admin" target="_blank" rel="noopener noreferrer">
+                                        <GithubOutlined className="icon" />
+                                    </a>
+                                    <MailOutlined className="icon" onClick={openQrModal} />
+                                </div>
+                            </Card>
+                        </Col>
+
+                        <Col span={12}>
+                            <HomeTimeDisplay />
+                        </Col>
+                    </Row>
+                    <Card style={{ marginTop: '20px' }}>
+                        <Tabs defaultActiveKey="1" items={tabItems} />
                     </Card>
                 </div>
-            </section>
+            </div>
+
+            {/* 二维码模态框 */}
+            <Modal open={qrVisible} onCancel={closeQrModal} footer={null}>
+                <img src="https://via.placeholder.com/200" alt="QR Code" style={{ width: '100%' }} />
+            </Modal>
         </div>
     );
-}
+};
+
+export default HomePage;

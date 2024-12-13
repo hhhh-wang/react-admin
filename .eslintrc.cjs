@@ -37,16 +37,7 @@ module.exports = {
         'plugin:prettier/recommended', // 开启 Prettier 插件推荐的规则
     ],
     /* ESLint文件所依赖的插件 */
-    plugins: [
-        '@typescript-eslint',
-        'prettier',
-        'react',
-        'react-hooks',
-        'react-refresh',
-        'jsx-a11y',
-        'import',
-        'unused-imports',
-    ],
+    plugins: ['@typescript-eslint', 'prettier', 'react', 'react-hooks', 'react-refresh', 'jsx-a11y', 'import', 'unused-imports'],
     /**
      * 定义规则
      * "off" 或 0 - 关闭规则
@@ -129,10 +120,7 @@ module.exports = {
         ],
 
         'unused-imports/no-unused-imports-ts': 'warn',
-        'unused-imports/no-unused-vars-ts': [
-            'warn',
-            { vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_' },
-        ],
+        'unused-imports/no-unused-vars-ts': ['warn', { vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_' }],
 
         '@typescript-eslint/no-unused-vars': [
             'warn',

@@ -16,8 +16,10 @@ export default defineConfig({
         // 开css sourcemap方便找css
         devSourcemap: true,
     },
+    assetsInclude: ['**/*.otf', '**/*.ttf'], // 确保包含字体文件
     plugins: [
         react(),
+
         // 同步tsconfig.json的path设置alias
         tsconfigPaths(),
         createSvgIconsPlugin({
