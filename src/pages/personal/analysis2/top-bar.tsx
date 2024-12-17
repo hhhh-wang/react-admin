@@ -3,7 +3,7 @@ import SvgIcon from '@/components/icon/svg-icon'; // 引入 Ant Design 的箭头
 
 const StatisticCard = ({ title, value, change, data, isPositive }: StatisticCardProps) => {
     // ECharts 配置
-    const option = {
+    const option: echarts.EChartsOption = {
         grid: {
             left: 0,
             right: 0,
@@ -41,7 +41,6 @@ const StatisticCard = ({ title, value, change, data, isPositive }: StatisticCard
                     color: isPositive ? '#00A76F' : '#FF5630',
                     width: 2,
                 },
-                areaStyle: null, // 移除背景色
                 symbol: 'none', // 不显示点
             },
         ],
