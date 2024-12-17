@@ -3,7 +3,7 @@ import { Row, Col, Card, Statistic } from 'antd';
 import { LineChartOutlined, UserOutlined, ShoppingCartOutlined, StockOutlined } from '@ant-design/icons';
 import EChartsComponent from '@/components/e-charts';
 
-const Home: React.FC = () => {
+const Analysis: React.FC = () => {
     // 折线图配置
     const lineChartOption = {
         title: { text: '月度销售额', left: 'center' },
@@ -216,4 +216,4 @@ const Home: React.FC = () => {
     );
 };
 
-export default Home;
+export default Analysis;

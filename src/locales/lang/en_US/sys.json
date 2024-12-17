@@ -138,7 +138,8 @@
       },
       "personal": {
         "reveal": "reveal",
-        "analysis":"analysis"
+        "analysis":"analysis",
+        "analysis2":"analysis2"
       },
       "setting": {
         "index": "Setting",
