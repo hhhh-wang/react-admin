@@ -48,7 +48,7 @@ const StatisticCard = ({ title, value, change, data, isPositive }: StatisticCard
     };
 
     return (
-        <div className="bg-white flex min-w-[300px] flex-col gap-2 rounded-lg p-4 shadow">
+        <div className="bg-white flex min-w-[300px]  flex-col gap-2 rounded-lg p-4 shadow">
             {/* 标题区域 */}
             <div className="flex items-center justify-between text-sm text-gray-700">
                 <span>{title}</span>
@@ -80,7 +80,7 @@ type StatisticCardProps = {
 
 const TopBar: React.FC = () => {
     return (
-        <div className="flex items-center justify-between gap-4 bg-gray-100 p-6">
+        <div className="flex items-center justify-between gap-2 p-6">
             {/* 统计卡1 */}
             <StatisticCard title="Total Active Users" value="18,765" change={2.6} data={[100, 120, 150, 180, 170, 200, 220]} isPositive />
 
