@@ -12,11 +12,11 @@ sapling admin 是一个现代化风格的快速开发平台，前端基于 React
 ## 预览
 + https://prune.kangod.top
 
-![login.png](https://raw.githubusercontent.com/hhhh-wang/react-admin/blob/main/src/assets/login.png)
-![home.png](https://raw.githubusercontent.com/hhhh-wang/react-admin/blob/main/src/assets/home.png)
-![analysis1.png](https://raw.githubusercontent.com/hhhh-wang/react-admin/blob/main/src/assets/analysis1.png)
-![analysis2.png](https://raw.githubusercontent.com/hhhh-wang/react-admin/blob/main/src/assets/analysis2.png)
-![analysis3.png](https://raw.githubusercontent.com/hhhh-wang/react-admin/blob/main/src/assets/analysis3.png)
+![login.png](https://raw.githubusercontent.com/hhhh-wang/react-admin/main/src/assets/login.png)
+![home.png](https://raw.githubusercontent.com/hhhh-wang/react-admin/main/src/assets/home.png)
+![analysis1.png](https://raw.githubusercontent.com/hhhh-wang/react-admin/main/src/assets/analysis1.png)
+![analysis2.png](https://raw.githubusercontent.com/hhhh-wang/react-admin/main/src/assets/analysis2.png)
+![analysis3.png](https://raw.githubusercontent.com/hhhh-wang/react-admin/main/src/assets/analysis3.png)
 
 ## 特性
 
