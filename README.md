@@ -7,14 +7,16 @@
 
 ## 简介
 
-sapling Admin 是一个现代化风格的快速开发平台，前端基于 React 18、Vite、Ant Design 和 TypeScript 构建，后端使用 NestJS 开发：[sapling Api](https://github.com/kangood/prune-api)，它旨在帮助开发人员快速搭建功能强大的后台管理系统。
+sapling admin 是一个现代化风格的快速开发平台，前端基于 React 18、Vite、Ant Design 和 TypeScript 构建，后端使用 NestJS 开发：[sapling Api](https://github.com/kangood/prune-api)，它旨在帮助开发人员快速搭建功能强大的后台管理系统。
 
 ## 预览
 + https://prune.kangod.top
 
-![sign-in.png](https://raw.githubusercontent.com/kangood/prune-admin/main/src/assets/sign-in.png)
-![menu-black.png](https://raw.githubusercontent.com/kangood/prune-admin/main/src/assets/menu-black.png)
-![home.png](https://raw.githubusercontent.com/kangood/prune-admin/main/src/assets/home.png)
+![login.png](https://raw.githubusercontent.com/hhhh-wang/react-admin/blob/main/src/assets/login.png)
+![home.png](https://raw.githubusercontent.com/hhhh-wang/react-admin/blob/main/src/assets/home.png)
+![analysis1.png](https://raw.githubusercontent.com/hhhh-wang/react-admin/blob/main/src/assets/analysis1.png)
+![analysis2.png](https://raw.githubusercontent.com/hhhh-wang/react-admin/blob/main/src/assets/analysis2.png)
+![analysis3.png](https://raw.githubusercontent.com/hhhh-wang/react-admin/blob/main/src/assets/analysis3.png)
 
 ## 特性
 
@@ -37,7 +39,7 @@ sapling Admin 是一个现代化风格的快速开发平台，前端基于 React
 ### 获取项目代码
 
 ```bash
-git clone https://github.com/kangood/prune-admin.git
+git clone https://github.com/hhhh-wang/react-admin.git
 ```
 
 ### 安装依赖
@@ -70,4 +72,4 @@ pnpm build
 
 ## 鸣谢
 
-本项目的前端是在 [slash-admin](https://github.com/d3george/slash-admin) 脚手架基础上进行的开发，我在此基础上开发了后台管理系统中常用的一些页面
+本项目的前端是在 [prune-admin](https://github.com/kangood/prune-admin) 脚手架基础上进行的开发，我在此基础上开发了后台管理系统中常用的一些页面
