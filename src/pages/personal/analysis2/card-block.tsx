@@ -12,11 +12,11 @@ type Props = {
 };
 
 export function Conversion() {
-    return <CardBlock percent={48} title="38,566" subtitle="Conversion" iconify="mdi:account" bg="bg-[#008059]" strokeColor="#00A76F" />;
+    return <CardBlock percent={48} title="38,566" subtitle="覆盖率" iconify="mdi:account" bg="bg-[#008059]" strokeColor="#00A76F" />;
 }
 
 export function Applications() {
-    return <CardBlock percent={75} title="45,888" subtitle="Applications" iconify="mdi:email-outline" bg="bg-[#0092B3]" />;
+    return <CardBlock percent={75} title="45,888" subtitle="应用率" iconify="mdi:email-outline" bg="bg-[#0092B3]" />;
 }
 
 const CardBlock: React.FC<Props> = ({ percent, title, subtitle, iconify, bg = 'pink', strokeColor = '#1FB6FF' }) => {

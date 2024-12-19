@@ -39,12 +39,12 @@ export const InvoiceTable: React.FC = () => {
 
     return (
         <div className="bg-white flex-1 rounded-lg p-4 shadow-lg">
-            <h2 className="mb-4 text-lg font-semibold text-gray-800">New Invoice</h2>
+            <h2 className="mb-4 text-lg font-semibold text-gray-800">sku详情</h2>
             <Table dataSource={tableData} pagination={{ pageSize: 5 }} rowKey="key">
-                <Column title="InvoiceId" dataIndex="invoiceId" key="invoiceId" />
-                <Column title="Category" dataIndex="category" key="category" />
-                <Column title="Price" dataIndex="price" key="price" />
-                <Column title="Status" dataIndex="status" key="status" render={(status) => getStatusTag(status)} />
+                <Column title="商品编码" dataIndex="invoiceId" key="invoiceId" />
+                <Column title="种类" dataIndex="category" key="category" />
+                <Column title="价格" dataIndex="price" key="price" />
+                <Column title="状态" dataIndex="status" key="status" render={(status) => getStatusTag(status)} />
                 <Column
                     title="Action"
                     key="action"
@@ -119,7 +119,7 @@ export const ApplicationList: React.FC = () => {
 
     return (
         <div className="bg-white w-full rounded-lg p-4 shadow-lg ">
-            <h2 className="mb-4 text-lg font-semibold text-gray-800">Top Related Applications</h2>
+            <h2 className="mb-4 text-lg font-semibold text-gray-800">热门程序</h2>
             <ul className="space-y-4">
                 {applications.map((app, index) => (
                     <li key={index} className="flex items-center justify-between">
@@ -138,7 +138,7 @@ export const ApplicationList: React.FC = () => {
                                 {'★'.repeat(Math.floor(app.rating))}
                                 {'☆'.repeat(5 - Math.floor(app.rating))}
                             </div>
-                            <span className="text-xs text-gray-400">{app.reviews} reviews</span>
+                            <span className="text-xs text-gray-400">{app.reviews} 评价</span>
                         </div>
                     </li>
                 ))}

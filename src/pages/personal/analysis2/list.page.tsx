@@ -11,13 +11,13 @@ import * as echarts from 'echarts';
 const Analysis2: React.FC = () => {
     // Top Installed Countries 柱状图配置
     const barChartOption: echarts.EChartsOption = {
-        title: { text: 'Top Installed Countries', left: 'center' },
+        title: { text: '安装最多的国家', left: 'center' },
         tooltip: {},
-        xAxis: { type: 'category', data: ['Germany', 'China', 'Australia', 'France', 'USA'] },
+        xAxis: { type: 'category', data: ['德国', '法国', '澳大利亚', '法国', '美国'] },
         yAxis: { type: 'value' },
         series: [
             {
-                name: 'Installations',
+                name: '国家：',
                 type: 'bar',
                 data: [9910, 9250, 4950, 3280, 8810],
                 itemStyle: { color: '#1890ff' },
@@ -25,10 +25,10 @@ const Analysis2: React.FC = () => {
         ],
     };
 
-    // 数据：Top Authors
+    // 数据：作者列表
     const authors = [
-        { name: 'Pete Schulist II', works: '6k', color: '#52c41a' },
-        { name: 'Shannon Kutch', works: '6k', color: '#1890ff' },
+        { name: '祥子', works: '6k', color: '#52c41a' },
+        { name: 'Aaron', works: '6k', color: '#1890ff' },
         { name: 'Lynn Haag', works: '6k', color: '#ff4d4f' },
     ];
 
@@ -64,30 +64,30 @@ const Analysis2: React.FC = () => {
             <Row gutter={16} className="mb-6">
                 <Col span={8}>
                     <RingChart
-                        title="五色环图"
-                        subtitle="Progress"
+                        title="sku销量"
+                        subtitle="商品种类销量"
                         size={350}
                         segments={[
-                            { value: 20, color: '#FF5733', name: '红色部分' },
-                            { value: 30, color: '#FFC300', name: '黄色部分' },
-                            { value: 10, color: '#DAF7A6', name: '浅绿色部分' },
-                            { value: 25, color: '#33B5E5', name: '蓝色部分' },
-                            { value: 15, color: '#C70039', name: '深红色部分' },
+                            { value: 20, color: '#FF5733', name: '短袖' },
+                            { value: 30, color: '#FFC300', name: '卫衣' },
+                            { value: 10, color: '#DAF7A6', name: '体恤衫' },
+                            { value: 25, color: '#33B5E5', name: '沙滩裤' },
+                            { value: 15, color: '#C70039', name: '遮阳帽' },
                         ]}
                     />
                 </Col>
                 <Col span={16}>
                     <LineChart
-                        title="Area Installed"
+                        title="地区下安装量"
                         xAxisData={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov']}
                         seriesData={[
                             {
-                                name: 'China',
+                                name: '中国区',
                                 data: [50, 40, 45, 30, 80, 70, 60, 150, 100, 40, 50],
                                 color: '#00A76F',
                             },
                             {
-                                name: 'America',
+                                name: '美国区',
                                 data: [50, 30, 40, 20, 70, 90, 80, 60, 30, 50, 70],
                                 color: '#FFC82C',
                             },
@@ -95,19 +95,19 @@ const Analysis2: React.FC = () => {
                     />
                 </Col>
             </Row>
-            {/* 第四行：New Invoice 和 Top Related Applications */}
+            {/* 第四行：sku详情 和 热门程序 */}
             <Row gutter={10} className="mb-6">
-                {/* 左侧：New Invoice */}
+                {/* 左侧：sku详情  */}
                 <Col span={16}>
                     <InvoiceTable />
                 </Col>
 
-                {/* 右侧：Top Related Applications */}
+                {/* 右侧：热门程序 */}
                 <Col span={8}>
                     <ApplicationList />
                 </Col>
             </Row>
-            {/* 第五行：Top Installed Countries 和 Top Authors */}
+            {/* 第五行：安装最多的国家和最受欢迎的作者 */}
             <Row gutter={16} className="mb-6">
                 <Col span={12}>
                     <Card>
@@ -115,7 +115,7 @@ const Analysis2: React.FC = () => {
                     </Card>
                 </Col>
                 <Col span={12}>
-                    <Card title="Top Authors">
+                    <Card title="最受欢迎的作者">
                         <List
                             dataSource={authors}
                             renderItem={(item) => (

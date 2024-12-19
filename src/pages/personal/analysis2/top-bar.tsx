@@ -82,13 +82,13 @@ const TopBar: React.FC = () => {
     return (
         <div className="flex items-center justify-between gap-2 p-6">
             {/* 统计卡1 */}
-            <StatisticCard title="Total Active Users" value="18,765" change={2.6} data={[100, 120, 150, 180, 170, 200, 220]} isPositive />
+            <StatisticCard title="活跃用户数" value="18,765" change={2.6} data={[100, 120, 150, 180, 170, 200, 220]} isPositive />
 
             {/* 统计卡2 */}
-            <StatisticCard title="Total Installed" value="4,876" change={0.2} data={[200, 210, 215, 218, 220, 223, 225]} isPositive />
+            <StatisticCard title="总安装量" value="4,876" change={0.2} data={[200, 210, 215, 218, 220, 223, 225]} isPositive />
 
             {/* 统计卡3 */}
-            <StatisticCard title="Total Downloads" value="678" change={-0.1} data={[80, 78, 76, 75, 74, 72, 71]} isPositive={false} />
+            <StatisticCard title="总下载数" value="678" change={-0.1} data={[80, 78, 76, 75, 74, 72, 71]} isPositive={false} />
         </div>
     );
 };
