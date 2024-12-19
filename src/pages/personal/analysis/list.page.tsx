@@ -206,7 +206,7 @@ const Analysis: React.FC = () => {
                 {/* 底部柱状图 */}
                 <Row gutter={16} style={{ marginTop: '20px' }}>
                     <Col span={24}>
-                        <Card title="转化率">
+                        <Card>
                             <EChartsComponent option={barChartOption} width="100%" height={400} style={{ background: '#fff' }} />
                         </Card>
                     </Col>
