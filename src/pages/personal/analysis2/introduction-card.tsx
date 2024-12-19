@@ -5,13 +5,13 @@ import { Iconify } from '@/components/icon';
 const IntroductionCard: React.FC = () => {
     // 点击跳转的事件处理函数
     const handleButtonClick = () => {
-        window.open('https://discord.com', '_blank', 'noopener,noreferrer');
+        window.open('https://github.com', '_blank', 'noopener,noreferrer');
     };
 
     return (
-        <div className="flex flex-col items-center rounded-lg bg-[#C8EADE] p-0  md:flex-row md:items-center md:justify-between">
+        <div className="flex flex-col items-center rounded-lg bg-[#C8EADE] p-0 md:flex-row md:items-center md:justify-between">
             {/* 左侧内容 */}
-            <div className="md:w-1/8 space-y-4 pl-4 text-left text-green">
+            <div className="flex-1 space-y-4 pl-4 text-left text-green">
                 <div>
                     <div className="text-2xl font-bold">Welcome back 👋</div>
                     <div className="text-2xl">admin</div>
@@ -24,13 +24,13 @@ const IntroductionCard: React.FC = () => {
                 </p>
                 {/* 绿色背景按钮 */}
                 <button onClick={handleButtonClick} className="text-white hover:bg-green-600 inline-flex items-center space-x-2 rounded-md bg-green px-4 py-2 transition">
-                    <Iconify icon="carbon:logo-discord" size={24} className="text-gray-100" />
-                    <span className="font-medium text-gray-100">Join Discord</span>
+                    <Iconify icon="carbon:logo-github" size={24} className="text-gray-100" />
+                    <span className="font-medium text-gray-100">Join Github</span>
                 </button>
             </div>
             {/* 右侧图片 */}
-            <div className="mt-6 flex justify-center pr-2 md:mt-0 md:h-full   md:w-1/2">
-                <img src={backgroundImage} alt="Analysis" className="h-full w-full object-contain" />
+            <div className="mt-6 flex justify-center pr-2 md:mt-0 md:h-auto md:w-1/2">
+                <img src={backgroundImage} alt="Analysis" className="w-full object-contain" />
             </div>
         </div>
     );

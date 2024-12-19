@@ -21,7 +21,7 @@ export function Applications() {
 
 const CardBlock: React.FC<Props> = ({ percent, title, subtitle, iconify, bg = 'pink', strokeColor = '#1FB6FF' }) => {
     return (
-        <div className={`flex items-center justify-between ${bg} text-white h-24 rounded-lg p-4`}>
+        <div className={`flex items-center justify-between ${bg} text-white h-28 rounded-lg p-4`}>
             <div className="flex items-center gap-4">
                 {/* 环形进度条 */}
                 <Progress type="circle" percent={percent} size={64} strokeColor={strokeColor} trailColor="#E5E7EB" format={(percent) => `${percent}%`} />
