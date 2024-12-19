@@ -78,7 +78,7 @@ pnpm build
 
 如果你觉得本项目帮助到您，想请作者**喝杯茶** , 请扫码打赏任意金额
 
-<div style="display: flex; justify-content: center; gap: 20px;"> 
-<img src="https://raw.githubusercontent.com/hhhh-wang/react-admin/main/src/assets/pays/Alipay-Pay.jpg" style="zoom:25%;" /> 
-<img src="https://raw.githubusercontent.com/hhhh-wang/react-admin/main/src/assets/pays/Wechat-Pay.png" style="zoom:25%;" /> 
-</div> 
+<div align="center"> 
+<img src="https://raw.githubusercontent.com/hhhh-wang/react-admin/main/src/assets/pays/Alipay-Pay.jpg" width="200" /> 
+<img src="https://raw.githubusercontent.com/hhhh-wang/react-admin/main/src/assets/pays/Wechat-Pay.png" width="200" /> 
+</div>
