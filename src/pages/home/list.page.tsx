@@ -98,11 +98,11 @@ const HomePage: React.FC = () => {
                             <SmileOutlined style={iconStyle} />
                         </div>
                         <h2>
-                            在sapling是一个基于
-                            <a href="https://github.com/kangood/prune-admin" target="_blank" rel="noopener noreferrer">
-                                prune-admin
+                            在{' '}
+                            <a href="https://github.com/hhhh-wang/react-admin" target="_blank" rel="noopener noreferrer">
+                                sapling
                             </a>{' '}
-                            开发的后端管理框架，其核心目标是为开发者提供一个轻量级、易上手且可扩展的后台管理解决方案。框架的初心是希望开发者能够在一个易用的基础框架上快速搭建功能强大的后台系统，逐步优化，向更强大、更完善的方向迈进。
+                            是一个基于react18 开发的后端管理框架，其核心目标是为开发者提供一个轻量级、易上手且可扩展的后台管理解决方案。框架的初心是希望开发者能够在一个易用的基础框架上快速搭建功能强大的后台系统，逐步优化，向更强大、更完善的方向迈进。
                         </h2>
                     </Card>
                     <Card>
@@ -127,7 +127,7 @@ const HomePage: React.FC = () => {
 
                                 {/* 图标容器 */}
                                 <div className="home-icons">
-                                    <a href="https://github.com/kangood/prune-admin" target="_blank" rel="noopener noreferrer">
+                                    <a href="https://github.com/hhhh-wang/react-admin" target="_blank" rel="noopener noreferrer">
                                         <GithubOutlined className="icon" />
                                     </a>
                                     <MailOutlined className="icon" onClick={openQrModal} />

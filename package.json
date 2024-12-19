@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "homepage": "https://github.com/KangodYan/prune-admin",
+  "homepage": "https://github.com/hhhh-wang/react-admin",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

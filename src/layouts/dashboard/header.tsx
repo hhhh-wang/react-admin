@@ -31,10 +31,7 @@ export default function Header({ className = '', offsetTop = false }: Props) {
 
     const headerStyle: CSSProperties = {
         position: themeLayout === ThemeLayout.Horizontal ? 'relative' : 'fixed',
-        borderBottom:
-            themeLayout === ThemeLayout.Horizontal
-                ? `1px dashed ${Color(colorBorder).alpha(0.6).toString()}`
-                : '',
+        borderBottom: themeLayout === ThemeLayout.Horizontal ? `1px dashed ${Color(colorBorder).alpha(0.6).toString()}` : '',
         backgroundColor: Color(colorBgElevated).alpha(1).toString(),
     };
 
@@ -43,9 +40,7 @@ export default function Header({ className = '', offsetTop = false }: Props) {
     } else if (screenMap.md) {
         headerStyle.right = '0px';
         headerStyle.left = 'auto';
-        headerStyle.width = `calc(100% - ${
-            themeLayout === ThemeLayout.Vertical ? NAV_WIDTH : NAV_COLLAPSED_WIDTH
-        }px)`;
+        headerStyle.width = `calc(100% - ${themeLayout === ThemeLayout.Vertical ? NAV_WIDTH : NAV_COLLAPSED_WIDTH}px)`;
     } else {
         headerStyle.width = '100vw';
     }
@@ -62,10 +57,7 @@ export default function Header({ className = '', offsetTop = false }: Props) {
                 >
                     <div className="flex items-baseline">
                         {themeLayout !== ThemeLayout.Horizontal ? (
-                            <IconButton
-                                onClick={() => setDrawerOpen(true)}
-                                className="h-10 w-10 md:hidden"
-                            >
+                            <IconButton onClick={() => setDrawerOpen(true)} className="h-10 w-10 md:hidden">
                                 <SvgIcon icon="ic-menu" size="24" />
                             </IconButton>
                         ) : (
@@ -77,9 +69,7 @@ export default function Header({ className = '', offsetTop = false }: Props) {
                     <div className="flex">
                         <SearchBar />
                         <LocalePicker />
-                        <IconButton
-                            onClick={() => window.open('https://github.com/KangodYan/prune-admin')}
-                        >
+                        <IconButton onClick={() => window.open('https://github.com/hhhh-wang/react-admin')}>
                             <Iconify icon="mdi:github" size={24} />
                         </IconButton>
                         <NoticeButton />
@@ -88,15 +78,7 @@ export default function Header({ className = '', offsetTop = false }: Props) {
                     </div>
                 </div>
             </header>
-            <Drawer
-                placement="left"
-                onClose={() => setDrawerOpen(false)}
-                open={drawerOpen}
-                closeIcon={false}
-                headerStyle={{ display: 'none' }}
-                bodyStyle={{ padding: 0, overflow: 'hidden' }}
-                width="auto"
-            >
+            <Drawer placement="left" onClose={() => setDrawerOpen(false)} open={drawerOpen} closeIcon={false} headerStyle={{ display: 'none' }} bodyStyle={{ padding: 0, overflow: 'hidden' }} width="auto">
                 <Nav closeSideBarDrawer={() => setDrawerOpen(false)} />
             </Drawer>
         </>
