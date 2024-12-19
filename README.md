@@ -10,7 +10,7 @@
 sapling admin 是一个现代化风格的快速开发平台，前端基于 React 18、Vite、Ant Design 和 TypeScript 构建，后端使用 NestJS 开发：[sapling Api](https://github.com/kangood/prune-api)，它旨在帮助开发人员快速搭建功能强大的后台管理系统。
 
 ## 预览
-+ 暂无演示
++ https://prune.kangod.top
 
 ![login.png](https://raw.githubusercontent.com/hhhh-wang/react-admin/main/src/assets/login.png)
 ![home.png](https://raw.githubusercontent.com/hhhh-wang/react-admin/main/src/assets/home.png)
@@ -73,3 +73,12 @@ pnpm build
 ## 鸣谢
 
 本项目的前端是在 [prune-admin](https://github.com/kangood/prune-admin) 脚手架基础上进行的开发，我在此基础上开发了后台管理系统中常用的一些页面
+
+### 请我喝茶
+
+如果你觉得本项目帮助到您，想请作者**喝杯茶** , 请扫码打赏任意金额
+
+<div style="display: flex; justify-content: center; gap: 20px;"> 
+<img src="https://raw.githubusercontent.com/hhhh-wang/react-admin/main/src/assets/pays/Alipay-Pay.jpg" style="zoom:25%;" /> 
+<img src="https://raw.githubusercontent.com/hhhh-wang/react-admin/main/src/assets/pays/Wechat-Pay.png" style="zoom:25%;" /> 
+</div> 
