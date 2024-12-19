@@ -1,42 +1,46 @@
 <div align="center"> 
-<br>
-<h1> sapling admin </h1>
+<br> 
+<h1> sapling Admin </h1>
 </div>
 
-**English** | [中文](./README.zh-CN.md)
+**Chinese** | [English](./README.en-US.md)
 
 ## Introduction
-Prune Admin is a modern admin rapid development platform, front-end development with React 18, Vite, Ant Design, and TypeScript, back-end development with NestJS: [Prune Api](https://github.com/kangood/prune-api). It is designed to help developers quickly create powerful admin management systems.
+
+Sapling Admin is a modern-style rapid development platform. The frontend is built with React 18, Vite, Ant Design, and TypeScript, while the backend is developed using NestJS: [sapling Api](https://github.com/kangood/prune-api). It aims to help developers quickly set up powerful backend management systems.
 
 ## Preview
-+ https://prune.kangod.top
++ No demo yet
 
-![sign-in.png](https://raw.githubusercontent.com/kangood/prune-admin/main/src/assets/sign-in.png)
-![menu-black.png](https://raw.githubusercontent.com/kangood/prune-admin/main/src/assets/menu-black.png)
-![home.png](https://raw.githubusercontent.com/kangood/prune-admin/main/src/assets/home.png)
+![login.png](https://raw.githubusercontent.com/hhhh-wang/react-admin/main/src/assets/login.png)
+![home.png](https://raw.githubusercontent.com/hhhh-wang/react-admin/main/src/assets/home.png)
+![analysis1.png](https://raw.githubusercontent.com/hhhh-wang/react-admin/main/src/assets/analysis1.png)
+![analysis2.png](https://raw.githubusercontent.com/hhhh-wang/react-admin/main/src/assets/analysis2.png)
+![analysis3.png](https://raw.githubusercontent.com/hhhh-wang/react-admin/main/src/assets/analysis3.png)
 
 ## Features
 
 - Built using React 18 hooks
-- Powered by Vite for rapid development and hot module replacement
-- Integrates Ant Design, providing a rich set of UI components and design patterns
-- Written in TypeScript, offering type safety and an improved development experience
-- Integrate backend [Prune Api](https://github.com/kangood/prune-api) using the popular Node.js framework NestJS to provide data services
-- Includes common admin features like user management, role management, menu management, and area management
-- Supports internationalization for easy language switching
-- Customizable themes and styles, Use TailwindCSS for atomic operations with on-demand usage
-- Flexible routing configuration, supporting nested routes
-- Integrate permission management to control page access based on user roles, down to button-level access rights (To be perfected)
+- Developed with Vite for fast development and hot module replacement
+- Integrated with Ant Design, offering rich UI components and design patterns
+- Written in TypeScript, providing type safety and a better development experience
+- Backend integrated with Node.js framework NestJS: [sapling api](https://github.com/kangood/prune-api) for data services
+- Common backend management features such as user management, role management, menu management, and region management
+- Integrated with internationalization support, allowing easy language switching
+- Customizable themes and styles using TailwindCSS for atomic operations and on-demand usage
+- Flexible routing configuration with support for multi-level nested routes
+- Integrated permission management to control page and button-level access based on user roles (to be improved)
 - State management using Zustand
-- Data fetching using React-Query
-- Responsive design, adapting to various screen sizes and devices
+- Data fetching with React-Query
+- Responsive design that adapts to various screen sizes and devices
 
 ## Quick Start
 
-### Get the Project Code
+### Clone the Project
 
 ```bash
-git clone https://github.com/kangood/prune-admin.git
+git clone https://github.com/hhhh-wang/react-admin.git
+
 ```
 
 ### Install Dependencies
