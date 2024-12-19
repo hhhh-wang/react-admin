@@ -1,13 +1,13 @@
 <div align="center"> 
 <br> 
-<h1> Prune Admin </h1>
+<h1> sapling Admin </h1>
 </div>
 
 **中文** | [English](./README.en-US.md)
 
 ## 简介
 
-Prune Admin 是一个现代化风格的快速开发平台，前端基于 React 18、Vite、Ant Design 和 TypeScript 构建，后端使用 NestJS 开发：[Prune Api](https://github.com/kangood/prune-api)，它旨在帮助开发人员快速搭建功能强大的后台管理系统。
+sapling Admin 是一个现代化风格的快速开发平台，前端基于 React 18、Vite、Ant Design 和 TypeScript 构建，后端使用 NestJS 开发：[sapling Api](https://github.com/kangood/prune-api)，它旨在帮助开发人员快速搭建功能强大的后台管理系统。
 
 ## 预览
 + https://prune.kangod.top
@@ -22,7 +22,7 @@ Prune Admin 是一个现代化风格的快速开发平台，前端基于 React 1
 - 基于 Vite 进行快速开发和热模块替换
 - 集成 Ant Design，提供丰富的 UI 组件和设计模式
 - 使用 TypeScript 编写，提供类型安全性和更好的开发体验
-- 使用 Node.js 流行框架 NestJS 集成后端 [Prune Api](https://github.com/kangood/prune-api)，提供数据服务
+- 使用 Node.js 流行框架 NestJS 集成后端 [sapling api](https://github.com/kangood/prune-api)，提供数据服务
 - 集成常见的后台管理功能，如用户管理、角色管理、菜单管理、地区管理等
 - 集成国际化支持，轻松切换多语言
 - 可定制的主题和样式，使用 TailwindCSS 原子化操作按需使用

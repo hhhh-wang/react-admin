@@ -1,14 +1,9 @@
-import { Layout, Typography } from 'antd';
-import Color from 'color';
-import { useTranslation } from 'react-i18next';
+import { Layout } from 'antd';
 import { Navigate } from 'react-router-dom';
-
-import DashboardImg from '@/assets/images/background/dashboard.png';
-import Overlay2 from '@/assets/images/background/overlay_2.jpg';
 import LocalePicker from '@/components/locale-picker';
 import { useUserToken } from '@/store/userStore';
 import { useThemeToken } from '@/theme/hooks';
-
+import bgVideo from '@/assets/video/tree-growth-animation.mp4';
 import LoginForm from './LoginForm';
 import MobileForm from './MobileForm';
 import { LoginStateProvider } from './providers/LoginStateProvider';
@@ -19,7 +14,6 @@ import ResetForm from './ResetForm';
 const { VITE_APP_HOMEPAGE: HOMEPAGE } = import.meta.env;
 
 function Login() {
-    const { t } = useTranslation();
     const token = useUserToken();
     const { colorBgElevated } = useThemeToken();
 
@@ -29,26 +23,22 @@ function Login() {
         return <Navigate to={HOMEPAGE} replace />;
     }
 
-    const gradientBg = Color(colorBgElevated).alpha(0.9).toString();
-    const bg = `linear-gradient(${gradientBg}, ${gradientBg}) center center / cover no-repeat,url(${Overlay2})`;
+    // 背景样式
+    const gradientBg = `linear-gradient(${colorBgElevated}, ${colorBgElevated})`;
 
     return (
         <Layout className="relative flex !min-h-screen !w-full !flex-row">
+            {/* 背景视频 */}
             <div
-                className="hidden grow flex-col items-center justify-center gap-[80px] bg-center  bg-no-repeat md:flex"
+                className="absolute inset-0 z-0"
                 style={{
-                    background: bg,
+                    background: gradientBg,
                 }}
             >
-                <div className="text-3xl font-bold leading-normal lg:text-4xl xl:text-5xl">
-                    Prune Admin
-                </div>
-                <img className="max-w-[480px] xl:max-w-[560px]" src={DashboardImg} alt="" />
-                <Typography.Text className="flex flex-row gap-[16px] text-2xl">
-                    {t('sys.login.signInSecondTitle')}
-                </Typography.Text>
+                <video autoPlay loop muted playsInline className="h-full w-full object-cover" src={bgVideo} />
             </div>
-
+            {/* 填充物 */}
+            <div className="relative z-10 flex grow flex-col items-center justify-center gap-[80px] bg-center bg-no-repeat md:flex" />
             <div className="m-auto flex !h-screen w-full max-w-[480px] flex-col justify-center px-[16px] lg:px-[64px]">
                 <LoginStateProvider>
                     <LoginForm />
@@ -65,4 +55,5 @@ function Login() {
         </Layout>
     );
 }
+
 export default Login;

@@ -1,6 +1,6 @@
 <div align="center"> 
 <br>
-<h1> Prune Admin </h1>
+<h1> sapling admin </h1>
 </div>
 
 **English** | [中文](./README.zh-CN.md)

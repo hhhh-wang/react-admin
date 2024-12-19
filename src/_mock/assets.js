@@ -512,7 +512,7 @@ export const DEFAULT_USER = {
 };
 export const TEST_USER = {
     id: faker.string.uuid(),
-    account: 'prune_pt',
+    account: 'reactTest',
     password: '123456',
     email: faker.internet.email(),
     avatar: faker.image.avatarLegacy(),

@@ -64,8 +64,8 @@ const Analysis2: React.FC = () => {
             <Row gutter={16} className="mb-6">
                 <Col span={8}>
                     <RingChart
-                        title="sku销量"
-                        subtitle="商品种类销量"
+                        title="总销量"
+                        subtitle="商品销售总量"
                         size={350}
                         segments={[
                             { value: 20, color: '#FF5733', name: '短袖' },
