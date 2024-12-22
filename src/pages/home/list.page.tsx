@@ -5,6 +5,7 @@ import EChartsComponent from '@/components/e-charts';
 import HomeTimeDisplay from '@/pages/home/home-time-display';
 import { useUserInfo } from '@/store/userStore';
 import './home.less';
+import * as echarts from 'echarts';
 
 const HomePage: React.FC = () => {
     const [hovered, setHovered] = useState(false);
@@ -14,7 +15,7 @@ const HomePage: React.FC = () => {
     const openQrModal = () => setQrVisible(true);
     const closeQrModal = () => setQrVisible(false);
 
-    const lineChartOption = {
+    const lineChartOption: echarts.EChartsOption = {
         title: { text: '近八天系统访问记录', left: 'center' },
         tooltip: { trigger: 'axis' },
         legend: { top: '10%', data: ['你', '总数'] },
@@ -76,7 +77,7 @@ const HomePage: React.FC = () => {
             children: projectIntro,
         },
     ];
-    const headerStyle = {
+    const headerStyle: React.CSSProperties = {
         textAlign: 'center',
         fontSize: '28px',
         fontWeight: 'bold',

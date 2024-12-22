@@ -122,7 +122,7 @@ export default function ProjectsTab() {
                                 <ProTag color="warning">{item.deadline.diff(dayjs(), 'day')} days left</ProTag>
                             </div>
                             <div className="flex w-full ">
-                                <Avatar.Group max={{ count: 4 }}>
+                                <Avatar.Group maxCount={4}>
                                     {item.members.map((memberAvatar) => (
                                         <Avatar src={memberAvatar} key={memberAvatar} />
                                     ))}

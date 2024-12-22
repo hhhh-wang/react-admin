@@ -8,8 +8,8 @@ import { useEffect, useState } from 'react';
 import { useListResource } from '@/services/resource';
 import { useSaveBatchRoleAutority } from '@/services/role-authority';
 
-import { OutputType } from '../../../setting/menus/list.page';
-import { OutputType as ResourceOutputType } from '../../../setting/menus/resource-list.page';
+import { OutputType } from '@/pages/setting/menus/list.page';
+import { OutputType as ResourceOutputType } from '@/pages/setting/menus/resource-list.page';
 
 import { PermissionType } from '#/enum';
 

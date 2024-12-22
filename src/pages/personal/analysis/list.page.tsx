@@ -2,10 +2,11 @@ import React from 'react';
 import { Row, Col, Card, Statistic } from 'antd';
 import { LineChartOutlined, UserOutlined, ShoppingCartOutlined, StockOutlined } from '@ant-design/icons';
 import EChartsComponent from '@/components/e-charts';
+import * as echarts from 'echarts';
 
 const Analysis: React.FC = () => {
     // 折线图配置
-    const lineChartOption = {
+    const lineChartOption: echarts.EChartsOption = {
         title: { text: '月度销售额', left: 'center' },
         tooltip: { trigger: 'axis' },
         legend: { top: '10%', data: ['团队 A', '团队 B', '团队 C'] },
@@ -22,7 +23,7 @@ const Analysis: React.FC = () => {
     };
 
     // 南丁格尔玫瑰图配置
-    const roseChartOption = {
+    const roseChartOption: echarts.EChartsOption = {
         title: { text: '当前访问量', left: 'center' },
         tooltip: { trigger: 'item' },
         legend: { bottom: '10%' },
@@ -42,7 +43,7 @@ const Analysis: React.FC = () => {
     };
 
     // 柱状图配置
-    const barChartOption = {
+    const barChartOption: echarts.EChartsOption = {
         title: { text: '转化率', left: 'center' },
         tooltip: { trigger: 'axis' },
         xAxis: {
@@ -98,11 +99,6 @@ const Analysis: React.FC = () => {
                                     fontWeight: 'bold',
                                     fontSize: '24px',
                                 }}
-                                titleStyle={{
-                                    color: '#e3f2fd',
-                                    fontWeight: 'bold',
-                                    fontSize: '16px',
-                                }}
                             />
                         </Card>
                     </Col>
@@ -124,11 +120,6 @@ const Analysis: React.FC = () => {
                                     color: '#ffffff',
                                     fontWeight: 'bold',
                                     fontSize: '24px',
-                                }}
-                                titleStyle={{
-                                    color: '#e3fdfd',
-                                    fontWeight: 'bold',
-                                    fontSize: '16px',
                                 }}
                             />
                         </Card>
@@ -152,11 +143,6 @@ const Analysis: React.FC = () => {
                                     fontWeight: 'bold',
                                     fontSize: '24px',
                                 }}
-                                titleStyle={{
-                                    color: '#ffecd1',
-                                    fontWeight: 'bold',
-                                    fontSize: '16px',
-                                }}
                             />
                         </Card>
                     </Col>
@@ -178,11 +164,6 @@ const Analysis: React.FC = () => {
                                     color: '#ffffff',
                                     fontWeight: 'bold',
                                     fontSize: '24px',
-                                }}
-                                titleStyle={{
-                                    color: '#ffccd5',
-                                    fontWeight: 'bold',
-                                    fontSize: '16px',
                                 }}
                             />
                         </Card>

@@ -4,7 +4,7 @@ import FileSaver from 'file-saver';
 
 import { service } from '@/http/axios/service';
 import { queryClient } from '@/http/tanstack/react-query';
-import { InputType, OutputType } from '@/pages/org/stations/constants';
+import { InputType, OutputType } from '@/pages/setting/stations/constants';
 import { globalSuccess } from '@/utils/antd-extract';
 import { QueryResultType } from '@/utils/types';
 
@@ -12,9 +12,7 @@ import { QueryResultType } from '@/utils/types';
  * 分页查询
  */
 export const useListStation = () => {
-    return useQuery<QueryResultType<OutputType>>(['listStation'], () =>
-        service.get('/station').then((res) => res.data),
-    );
+    return useQuery<QueryResultType<OutputType>>(['listStation'], () => service.get('/station').then((res) => res.data));
 };
 
 /**
@@ -84,17 +82,9 @@ export const exportStationExcel = async (values?: InputType) => {
  * 导入Excel
  */
 export const useImportStationExcel = () => {
-    return useMutation(
-        async (file: UploadFile) =>
-            service.post(
-                '/station/importExcel',
-                { file },
-                { headers: { 'Content-Type': 'multipart/form-data' } },
-            ),
-        {
-            onSuccess: async () => {
-                globalSuccess();
-            },
+    return useMutation(async (file: UploadFile) => service.post('/station/importExcel', { file }, { headers: { 'Content-Type': 'multipart/form-data' } }), {
+        onSuccess: async () => {
+            globalSuccess();
         },
-    );
+    });
 };

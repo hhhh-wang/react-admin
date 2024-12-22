@@ -50,6 +50,8 @@ const EChartsComponent: React.FC<EChartsComponentProps> = ({ option, style, clas
                     chartInstance.current?.dispose();
                 };
             }
+            // Ensure a return value for all execution paths
+            return undefined;
         };
 
         // Initialize chart
@@ -60,7 +62,6 @@ const EChartsComponent: React.FC<EChartsComponentProps> = ({ option, style, clas
             cleanup?.();
         };
     }, [memoizedOption, theme, loading]);
-
     return (
         <div
             ref={chartRef}

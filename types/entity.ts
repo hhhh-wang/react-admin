@@ -8,6 +8,7 @@ export interface UserToken {
 export interface UserInfo {
     id: string;
     email: string;
+    username: string;
     account: string;
     password?: string;
     avatar?: string;

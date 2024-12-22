@@ -1,7 +1,7 @@
 import { Modal, Transfer } from 'antd';
 import { useEffect, useState } from 'react';
 
-import { OutputType as UserOutputType } from '@/pages/org/users/constants';
+import { OutputType as UserOutputType } from '@/pages/setting/users/constants';
 import { useSaveUserRoleList, OutputType as UserRoleOutputType } from '@/services/user-role';
 
 interface RoleAllotPageProps {
