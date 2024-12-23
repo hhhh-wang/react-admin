@@ -10,6 +10,7 @@ import { LoginStateProvider } from './providers/LoginStateProvider';
 import QrCodeFrom from './QrCodeForm';
 import RegisterForm from './RegisterForm';
 import ResetForm from './ResetForm';
+import AsyncVideoBackground from '@/pages/setting/sys/login/AsyncVideo';
 
 const { VITE_APP_HOMEPAGE: HOMEPAGE } = import.meta.env;
 
@@ -29,14 +30,7 @@ function Login() {
     return (
         <Layout className="relative flex !min-h-screen !w-full !flex-row">
             {/* 背景视频 */}
-            <div
-                className="absolute inset-0 z-0"
-                style={{
-                    background: gradientBg,
-                }}
-            >
-                <video autoPlay loop muted playsInline className="h-full w-full object-cover" src={bgVideo} />
-            </div>
+            <AsyncVideoBackground src={bgVideo} style={{ background: gradientBg }} />
             {/* 填充物 */}
             <div className="relative z-10 flex grow flex-col items-center justify-center gap-[80px] bg-center bg-no-repeat md:flex" />
             <div className="m-auto flex !h-screen w-full max-w-[480px] flex-col justify-center px-[16px] lg:px-[64px]">
