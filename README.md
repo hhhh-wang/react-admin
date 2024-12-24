@@ -10,7 +10,7 @@
 sapling admin 是一个现代化风格的快速开发平台，前端基于 React 18、Vite、Ant Design 和 TypeScript 构建，后端使用 NestJS 开发：[sapling Api](https://github.com/kangood/prune-api)，它旨在帮助开发人员快速搭建功能强大的后台管理系统。
 
 ## 预览
-+ https://prune.kangod.top
++ http://sapling-react.online/ 域名还在审核中，先用106.52.209.18 IP来访问吧，PS:虽然知道没人访问,哈哈哈，但是该有的还得有
 
 ![login.png](https://raw.githubusercontent.com/hhhh-wang/react-admin/main/src/assets/login.png)
 ![home.png](https://raw.githubusercontent.com/hhhh-wang/react-admin/main/src/assets/home.png)
