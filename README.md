@@ -86,7 +86,13 @@ pnpm build
 
 ### 请我喝茶
 如果你觉得本项目帮助到您，想请作者**喝杯茶** , 请扫码打赏任意金额
-<div style="display: flex; justify-content: center; gap: 20px;"> 
-<img src="https://raw.githubusercontent.com/hhhh-wang/react-admin/main/src/assets/pays/Alipay-Pay.jpg" style="zoom:25%;" /> 
-<img src="https://raw.githubusercontent.com/hhhh-wang/react-admin/main/src/assets/pays/Wechat-Pay.png" style="zoom:25%;" /> 
-</div> 
+<table align="center">
+  <tr>
+    <td align="center" width="50%">
+      <img src="https://raw.githubusercontent.com/hhhh-wang/react-admin/main/src/assets/pays/Alipay-Pay.jpg" alt="Alipay Pay" style="max-width: 100%;"/>
+    </td>
+    <td align="center" width="50%">
+      <img src="https://raw.githubusercontent.com/hhhh-wang/react-admin/main/src/assets/pays/Wechat-Pay.png" alt="Wechat Pay" style="max-width: 100%;"/>
+    </td>
+  </tr>
+</table>
