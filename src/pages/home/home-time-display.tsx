@@ -26,11 +26,11 @@ const HomeTimeDisplay: React.FC = () => {
                             letterSpacing: '2px',
                         }}
                     >
-                        <span>{currentTime.format('HH')}</span>
+                        <span className="inline-block min-w-[2.1ch] text-center">{currentTime.format('HH')}</span>
                         <span className="mx-2 mb-5 opacity-80">:</span>
-                        <span>{currentTime.format('mm')}</span>
+                        <span className="inline-block min-w-[2.1ch] text-center">{currentTime.format('mm')}</span>
                         <span className="mx-2 mb-5 opacity-80">:</span>
-                        <span>{currentTime.format('ss')}</span>
+                        <span className="inline-block min-w-[2.1ch] text-center">{currentTime.format('ss')}</span>
                     </div>
                 </div>
             </div>
