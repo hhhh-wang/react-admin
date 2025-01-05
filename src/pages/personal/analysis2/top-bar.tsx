@@ -48,7 +48,7 @@ const StatisticCard = ({ title, value, change, data, isPositive }: StatisticCard
     };
 
     return (
-        <div className="bg-white flex min-w-[300px]  flex-col gap-2 rounded-lg p-4 shadow">
+        <div className="bg-white flex min-w-[350px] flex-col gap-2 rounded-lg p-4 shadow">
             {/* 标题区域 */}
             <div className="flex items-center justify-between text-sm text-gray-700">
                 <span>{title}</span>
