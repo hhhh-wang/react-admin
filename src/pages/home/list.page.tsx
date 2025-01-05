@@ -4,8 +4,6 @@ import { SmileOutlined, GithubOutlined, MailOutlined } from '@ant-design/icons';
 import EChartsComponent from '@/components/e-charts';
 import HomeTimeDisplay from '@/pages/home/home-time-display';
 import { useUserInfo } from '@/store/userStore';
-import './home.less';
-import * as echarts from 'echarts';
 
 const HomePage: React.FC = () => {
     const [hovered, setHovered] = useState(false);
@@ -43,11 +41,11 @@ const HomePage: React.FC = () => {
         display: 'flex', // 使用 flex 布局
         alignItems: 'center', // 垂直居中
         justifyContent: 'center', // 水平居中
-        gap: '10px', // 控制图标与文字的间距
+        gap: '20px', // 控制图标与文字的间距
     };
 
     const techStack = (
-        <ul>
+        <ul className="space-y-4 px-4 text-base">
             <li>基于 React 18 hooks 构建，提升代码复用性与性能</li>
             <li>快速开发：基于 Vite 提供高效热模块替换</li>
             <li>集成 Ant Design，支持丰富 UI 组件</li>
@@ -58,7 +56,7 @@ const HomePage: React.FC = () => {
     );
 
     const projectIntro = (
-        <ul>
+        <ul className="space-y-4 px-4 text-base">
             <li>产品名称：sapling 快速开发平台</li>
             <li>核心功能：高效、灵活、可定制的企业级管理系统</li>
             <li>获取源码：sapling 后台服务、前端模板一键集成</li>
@@ -79,7 +77,7 @@ const HomePage: React.FC = () => {
     ];
     const headerStyle: React.CSSProperties = {
         textAlign: 'center',
-        fontSize: '28px',
+        fontSize: '40px',
         fontWeight: 'bold',
         color: '#3575ff',
     };
@@ -89,66 +87,78 @@ const HomePage: React.FC = () => {
     };
 
     return (
-        <div className="home-container">
-            <div className="home-content">
-                {/* 左侧内容 */}
-                <div style={{ flex: 1 }}>
-                    <Card style={{ marginBottom: '20px', textAlign: 'center' }}>
-                        <div style={headerContainerStyle}>
+        <div className="flex-1 p-4">
+            <div className="flex gap-4">
+                {/* 左侧内容 - 添加最小高度 */}
+                <div className="flex flex-1 flex-col space-y-6">
+                    <Card className="min-h-[250px] flex-1 text-center">
+                        <div style={headerContainerStyle} className="mb-8">
                             <span style={headerStyle}>欢迎来到sapling后端管理框架</span>
                             <SmileOutlined style={iconStyle} />
                         </div>
-                        <h2>
+                        <h2 className="px-8 text-base leading-relaxed text-gray-600">
                             在{' '}
-                            <a href="https://github.com/hhhh-wang/react-admin" target="_blank" rel="noopener noreferrer">
+                            <a href="https://github.com/hhhh-wang/react-admin" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-600">
                                 sapling
                             </a>{' '}
                             是一个基于react18 开发的后端管理框架，其核心目标是为开发者提供一个轻量级、易上手且可扩展的后台管理解决方案。框架的初心是希望开发者能够在一个易用的基础框架上快速搭建功能强大的后台系统，逐步优化，向更强大、更完善的方向迈进。
                         </h2>
                     </Card>
-                    <Card>
+
+                    <Card className="min-h-[500px] flex-1">
                         <EChartsComponent option={lineChartOption} width="100%" height={400} />
                     </Card>
                 </div>
 
                 {/* 右侧内容 */}
-                <div style={{ flex: 1 }}>
-                    <Row gutter={16}>
-                        <Col span={12}>
-                            <Card className="home-card" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
-                                {/* 卡片内容区域 */}
-                                <div className="home-card-content">
-                                    {/* 头像 */}
-                                    <img className={`home-avatar ${hovered ? 'hidden' : ''}`} src={avatar || 'https://via.placeholder.com/80'} alt="User Avatar" />
-                                    {/* 用户名 */}
-                                    <div className={`home-username ${hovered ? 'hidden' : ''}`}>{account || '未登录用户'}</div>
-                                    {/* 悬停文字 */}
-                                    <div className={`home-hover-text ${hovered ? 'visible' : 'hidden'}`}>做一些有挑战的事</div>
-                                </div>
+                <div className="flex-1">
+                    <div className="space-y-6">
+                        <Row gutter={16}>
+                            <Col span={12}>
+                                <Card className="relative overflow-hidden transition-all duration-300 hover:shadow-lg" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
+                                    {/* 卡片内容区域 */}
+                                    <div className="relative flex flex-col items-center justify-center p-4">
+                                        {/* 头像和用户名容器 */}
+                                        <div className={`flex flex-col items-center transition-all duration-300 ${hovered ? 'opacity-0' : 'opacity-100'}`}>
+                                            <img className="h-20 w-20 rounded-full" src={avatar || 'https://via.placeholder.com/80'} alt="User Avatar" />
+                                            <div className="mt-2 text-lg font-medium">{account || '未登录用户'}</div>
+                                        </div>
 
-                                {/* 图标容器 */}
-                                <div className="home-icons">
-                                    <a href="https://github.com/hhhh-wang/react-admin" target="_blank" rel="noopener noreferrer">
-                                        <GithubOutlined className="icon" />
-                                    </a>
-                                    <MailOutlined className="icon" onClick={openQrModal} />
-                                </div>
-                            </Card>
-                        </Col>
+                                        {/* 悬停文字 */}
+                                        <div className={`absolute inset-0 flex items-center justify-center text-lg font-medium text-gray-600 transition-all duration-300 ${hovered ? 'opacity-100' : 'opacity-0'}`}>变量代表了灵活性和可变性，人生中的不确定性也是永恒的主题。不同时期面对不同的挑战和选择，需要不断调整自己的目标和策略去适应不同的环境和挑战。</div>
+                                    </div>
 
-                        <Col span={12}>
-                            <HomeTimeDisplay />
-                        </Col>
-                    </Row>
-                    <Card style={{ marginTop: '20px' }}>
-                        <Tabs defaultActiveKey="1" items={tabItems} />
-                    </Card>
+                                    {/* 图标容器 - 修改为靠右 3/4 位置 */}
+                                    <div className="mt-4 flex justify-end gap-4 pr-8">
+                                        <a href="https://github.com/hhhh-wang/react-admin" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500 text-2xl text-gray-600 transition-colors">
+                                            <GithubOutlined />
+                                        </a>
+                                        <MailOutlined className="hover:text-blue-500 cursor-pointer text-2xl text-gray-600 transition-colors" onClick={openQrModal} />
+                                    </div>
+                                </Card>
+                            </Col>
+
+                            <Col span={12}>
+                                <HomeTimeDisplay />
+                            </Col>
+                        </Row>
+                        <Card className="p-4">
+                            <Tabs
+                                defaultActiveKey="1"
+                                items={tabItems}
+                                className="text-gray-600"
+                                style={{
+                                    ['--tab-padding' as string]: '20px', // 增加 tab 之间的间距
+                                }}
+                            />
+                        </Card>
+                    </div>
                 </div>
             </div>
 
             {/* 二维码模态框 */}
             <Modal open={qrVisible} onCancel={closeQrModal} footer={null}>
-                <img src="https://via.placeholder.com/200" alt="QR Code" style={{ width: '100%' }} />
+                <img src="https://via.placeholder.com/200" alt="QR Code" className="w-full" />
             </Modal>
         </div>
     );
