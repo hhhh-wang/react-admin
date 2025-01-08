@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Card, Modal, Row, Col, Tabs } from 'antd';
-import { SmileOutlined, GithubOutlined, MailOutlined } from '@ant-design/icons';
+import { SmileOutlined, GithubOutlined, WechatOutlined } from '@ant-design/icons';
 import EChartsComponent from '@/components/e-charts';
 import HomeTimeDisplay from '@/pages/home/home-time-display';
 import { useUserInfo } from '@/store/userStore';
+import wechatQR from '@/assets/wechat.png';
 
 const HomePage: React.FC = () => {
     const [hovered, setHovered] = useState(false);
@@ -128,12 +129,14 @@ const HomePage: React.FC = () => {
                                         <div className={`absolute inset-0 flex items-center justify-center text-lg font-medium text-gray-600 transition-all duration-300 ${hovered ? 'opacity-100' : 'opacity-0'}`}>变量代表了灵活性和可变性，人生中的不确定性也是永恒的主题。不同时期面对不同的挑战和选择，需要不断调整自己的目标和策略去适应不同的环境和挑战。</div>
                                     </div>
 
-                                    {/* 图标容器 - 修改为靠右 3/4 位置 */}
+                                    {/* 图标容器 */}
                                     <div className="mt-4 flex justify-end gap-4 pr-8">
                                         <a href="https://github.com/hhhh-wang/react-admin" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500 text-2xl text-gray-600 transition-colors">
                                             <GithubOutlined />
                                         </a>
-                                        <MailOutlined className="hover:text-blue-500 cursor-pointer text-2xl text-gray-600 transition-colors" onClick={openQrModal} />
+                                        <a className="hover:text-blue-500 text-2xl text-gray-600 transition-colors">
+                                            <WechatOutlined onClick={openQrModal} className="cursor-pointer" />
+                                        </a>
                                     </div>
                                 </Card>
                             </Col>
@@ -157,8 +160,10 @@ const HomePage: React.FC = () => {
             </div>
 
             {/* 二维码模态框 */}
-            <Modal open={qrVisible} onCancel={closeQrModal} footer={null}>
-                <img src="https://via.placeholder.com/200" alt="QR Code" className="w-full" />
+            <Modal title="微信二维码" open={qrVisible} onCancel={closeQrModal} footer={null} width={500}>
+                <div className="flex justify-center">
+                    <img src={wechatQR} alt="WeChat QR Code" className="h-[450px] w-[450px] object-contain" />
+                </div>
             </Modal>
         </div>
     );
