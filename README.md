@@ -12,11 +12,14 @@ sapling admin 是一个现代化风格的快速开发平台，前端基于 React
 ## 预览
 + http://sapling-react.online/ 域名还在审核中，先用106.52.209.18 IP来访问吧，PS:虽然知道没人访问,哈哈哈，但是该有的还得有
 
-![login.png](https://raw.githubusercontent.com/hhhh-wang/react-admin/main/src/assets/login.png)
-![home.png](https://raw.githubusercontent.com/hhhh-wang/react-admin/main/src/assets/home.png)
-![analysis1.png](https://raw.githubusercontent.com/hhhh-wang/react-admin/main/src/assets/analysis1.png)
-![analysis2.png](https://raw.githubusercontent.com/hhhh-wang/react-admin/main/src/assets/analysis2.png)
-![analysis3.png](https://raw.githubusercontent.com/hhhh-wang/react-admin/main/src/assets/analysis3.png)
+
+
+![login](https://cdn.jsdelivr.net/gh/hhhh-wang/MyPic@main/blog/img/login.png)
+
+![home.png](https://cdn.jsdelivr.net/gh/hhhh-wang/MyPic@main/blog/img/home.png)
+![analysis1.png](https://cdn.jsdelivr.net/gh/hhhh-wang/MyPic@main/blog/img/analysis1.png)
+![analysis2.png](https://cdn.jsdelivr.net/gh/hhhh-wang/MyPic@main/blog/img/analysis2.png)
+![analysis3.png](https://cdn.jsdelivr.net/gh/hhhh-wang/MyPic@main/blog/img/analysis3.png)
 
 ## 特性
 
@@ -89,10 +92,11 @@ pnpm build
 <table align="center">
   <tr>
     <td align="center" width="50%">
-      <img src="https://raw.githubusercontent.com/hhhh-wang/react-admin/main/src/assets/pays/Alipay-Pay.jpg" alt="Alipay Pay" style="max-width: 100%;"/>
+      <img src="https://cdn.jsdelivr.net/gh/hhhh-wang/MyPic@main/blog/img/Alipay-Pay.jpg" alt="Alipay Pay" style="max-width: 100%;"/>
     </td>
     <td align="center" width="50%">
-      <img src="https://raw.githubusercontent.com/hhhh-wang/react-admin/main/src/assets/pays/Wechat-Pay.png" alt="Wechat Pay" style="max-width: 100%;"/>
+      <img src="https://cdn.jsdelivr.net/gh/hhhh-wang/MyPic@main/blog/img/Wechat-Pay.png" alt="Wechat Pay" style="max-width: 100%;"/>
     </td>
   </tr>
 </table>
+
