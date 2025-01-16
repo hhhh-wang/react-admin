@@ -42,10 +42,7 @@ export default defineConfig({
       },
     },
   },
-  //
-  define: {
-    'process.env.NODE_ENV': JSON.stringify('prod'),
-  },
+
   build: {
     target: 'esnext',
     minify: 'terser',
