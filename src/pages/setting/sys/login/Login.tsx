@@ -11,6 +11,7 @@ import QrCodeFrom from './QrCodeForm';
 import RegisterForm from './RegisterForm';
 import ResetForm from './ResetForm';
 import AsyncVideoBackground from '@/pages/setting/sys/login/AsyncVideo';
+import BeiAn from '@/components/common/beian';
 
 const { VITE_APP_HOMEPAGE: HOMEPAGE } = import.meta.env;
 
@@ -45,6 +46,11 @@ function Login() {
 
             <div className="absolute right-2 top-0">
                 <LocalePicker />
+            </div>
+
+            {/* 添加备案信息，确保在视频上层 */}
+            <div className="absolute bottom-4 right-4 z-20">
+                <BeiAn />
             </div>
         </Layout>
     );
